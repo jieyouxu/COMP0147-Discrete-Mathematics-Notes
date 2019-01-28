@@ -1,0 +1,88 @@
+\documentclass[a4paper,twoside]{tufte-book}
+
+\hypersetup{colorlinks}
+
+%----------------------------------------------------------------------------------------
+% Packages
+%----------------------------------------------------------------------------------------
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{graphicx}
+    \graphicspath{{graphics/}}
+    \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\usepackage{fancyvrb}
+    \fvset{fontsize=\normalsize}
+\usepackage{xspace}
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{xcolor}
+
+% TEST
+\usepackage{lipsum}
+
+%----------------------------------------------------------------------------------------
+% Options and Commands
+%----------------------------------------------------------------------------------------
+\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
+\newcommand{\hangstar}{\makebox[0pt][l]{*}}
+\newcommand{\openepigraph}[2]{
+    \begin{fullwidth}
+        \sffamily\large
+        \begin{doublespace}
+            \noindent\allcaps{#1}\\ % The quote
+            \noindent\allcaps{#2} % The author
+        \end{doublespace}
+    \end{fullwidth}
+}
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
+
+\makeindex
+
+%----------------------------------------------------------------------------------------
+% Chapter Format
+%----------------------------------------------------------------------------------------
+\renewcommand{\thesection}{\thechapter.\number\numexpr\value{section}\relax}
+\renewcommand{\thesubsection}{\thesection.\number\numexpr\value{subsection}\relax}
+\renewcommand{\thesubsubsection}{\thesubsection.\number\numexpr\value{subsubsection}\relax}
+\setcounter{secnumdepth}{3}
+\setcounter{chapter}{0}
+
+%----------------------------------------------------------------------------------------
+% Title and Author
+%----------------------------------------------------------------------------------------
+\title{COMP0147: Discrete Mathematics Notes\thanks{from lectures by Max Konovich}}
+\author{Jieyou Xu}
+
+%----------------------------------------------------------------------------------------
+% Document
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{subsection}
+
+%----------------------------------------------------------------------------------------
+% Front Matter and Title
+%----------------------------------------------------------------------------------------
+\frontmatter
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+% Table of Contents
+%----------------------------------------------------------------------------------------
+\tableofcontents
+
+%----------------------------------------------------------------------------------------
+% Contents
+%----------------------------------------------------------------------------------------
+\mainmatter
+
+%----------------------------------------------------------------------------------------
+% Chapter
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
+%----------------------------------------------------------------------------------------
