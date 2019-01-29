@@ -1,6 +1,4 @@
-\documentclass[a4paper,twoside]{tufte-book}
-
-\hypersetup{colorlinks}
+\documentclass[11pt, a4paper]{book}
 
 %----------------------------------------------------------------------------------------
 % Packages
@@ -16,10 +14,17 @@
 \usepackage{makeidx}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb }
 \usepackage{xcolor}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titling}
 
-% TEST
-\usepackage{lipsum}
+
+\usepackage[osf,sc]{mathpazo}
+\usepackage[scaled=0.90]{helvet}
+\usepackage[scaled=0.85]{beramono}
 
 %----------------------------------------------------------------------------------------
 % Options and Commands
@@ -36,7 +41,6 @@
     \end{fullwidth}
 }
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
-
 \makeindex
 
 %----------------------------------------------------------------------------------------
@@ -51,7 +55,7 @@
 %----------------------------------------------------------------------------------------
 % Title and Author
 %----------------------------------------------------------------------------------------
-\title{COMP0147: Discrete Mathematics Notes\thanks{from lectures by Max Konovich}}
+\title{COMP0147: Discrete Mathematics Notes}
 \author{Jieyou Xu}
 
 %----------------------------------------------------------------------------------------
@@ -65,8 +69,6 @@
 %----------------------------------------------------------------------------------------
 % Front Matter and Title
 %----------------------------------------------------------------------------------------
-\frontmatter
-
 \maketitle
 
 %----------------------------------------------------------------------------------------
@@ -75,14 +77,22 @@
 \tableofcontents
 
 %----------------------------------------------------------------------------------------
-% Contents
+% Introduction
 %----------------------------------------------------------------------------------------
-\mainmatter
+\chapter*{Introduction}
+Notes are based on lecture notes by Professor Max Kanovich \cite{Kanovich2019} and discrete mathematics books \cite{Kenneth2012}.
 
 %----------------------------------------------------------------------------------------
 % Chapter
 %----------------------------------------------------------------------------------------
+\chapter{Logic and Proofs} \label{ch:logic_and_proofs}
+\input{./chapters/logic-and-proofs}
 
+%----------------------------------------------------------------------------------------
+% Bibliography
+%----------------------------------------------------------------------------------------
+\bibliography{discrete-mathematics-notes}
+\bibliographystyle{alpha}
 
 \end{document}
 %----------------------------------------------------------------------------------------
