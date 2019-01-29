@@ -15,16 +15,26 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{xcolor}
-\usepackage{url}
+\usepackage[dvipsnames, svgnames, x11names, hyperref]{xcolor}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{titling}
+\usepackage{dirtytalk}
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
 
+\usepackage{hyperref}
 
 \usepackage[osf,sc]{mathpazo}
 \usepackage[scaled=0.90]{helvet}
 \usepackage[scaled=0.85]{beramono}
+
+\hypersetup{
+    colorlinks = true, 
+    urlcolor = Teal, % Colour for external hyperlinks
+    linkcolor = Teal, % Colour of internal links
+    citecolor = DarkTurquoise % Colour of citations
+}
 
 %----------------------------------------------------------------------------------------
 % Options and Commands
@@ -48,10 +58,23 @@
 %----------------------------------------------------------------------------------------
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[chapter] % reset theorem numbering for each chapter
+\newtheorem{lemma}[theorem]{Lemma}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition} % definition numbers are dependent on theorem numbers
 \newtheorem{example}[theorem]{Example} % same for example numbers
+
+\everymath{\color{MidnightBlue}}
+
+\tcolorboxenvironment{definition}{enhanced jigsaw,colback={white}, colframe=SkyBlue,boxrule=1pt, sharp corners}
+\tcolorboxenvironment{theorem}{enhanced jigsaw,colback={white}, colframe=LimeGreen,boxrule=1pt, sharp corners}
+
+%----------------------------------------------------------------------------------------
+% Custom Keywords Format
+%----------------------------------------------------------------------------------------
+\newcommand{\keywordColor}{ProcessBlue}
+\newcommand{\keyword}[1]{\textcolor{\keywordColor}{#1}}
+\newcommand{\functionName}[1]{\texttt{#1}}
 
 %----------------------------------------------------------------------------------------
 % Chapter Format
