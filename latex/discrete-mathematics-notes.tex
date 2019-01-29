@@ -14,7 +14,7 @@
 \usepackage{makeidx}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{amssymb }
+\usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage[T1]{fontenc}
@@ -44,6 +44,16 @@
 \makeindex
 
 %----------------------------------------------------------------------------------------
+% Theorem Format
+%----------------------------------------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{example}[theorem]{Example} % same for example numbers
+
+%----------------------------------------------------------------------------------------
 % Chapter Format
 %----------------------------------------------------------------------------------------
 \renewcommand{\thesection}{\thechapter.\number\numexpr\value{section}\relax}
@@ -63,7 +73,6 @@
 %----------------------------------------------------------------------------------------
 \begin{document}
 
-\newtheorem{theorem}{Theorem}
 \numberwithin{theorem}{subsection}
 
 %----------------------------------------------------------------------------------------
