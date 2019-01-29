@@ -1,8 +1,19 @@
-\documentclass[11pt, a4paper]{book}
+\documentclass[11pt, twoside]{book}
 
 %----------------------------------------------------------------------------------------
 % Packages
 %----------------------------------------------------------------------------------------
+\usepackage[a4paper,
+    inner=20mm,
+    outer=50mm,     % = marginparsep + marginparwidth 
+                    %   + 5mm (between marginpar and page border)
+    top=20mm,
+    bottom=25mm,
+    marginparsep=5mm,
+    marginparwidth=30mm,
+    %showframe% for show your page design, normaly not used
+]{geometry}
+
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -17,11 +28,12 @@
 \usepackage{amssymb}
 \usepackage[dvipsnames, svgnames, x11names, hyperref]{xcolor}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{titling}
 \usepackage{dirtytalk}
 \usepackage{empheq}
 \usepackage[most]{tcolorbox}
+\usepackage{float}
+\usepackage{ragged2e}
 
 \usepackage{hyperref}
 
@@ -41,15 +53,6 @@
 %----------------------------------------------------------------------------------------
 \newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
 \newcommand{\hangstar}{\makebox[0pt][l]{*}}
-\newcommand{\openepigraph}[2]{
-    \begin{fullwidth}
-        \sffamily\large
-        \begin{doublespace}
-            \noindent\allcaps{#1}\\ % The quote
-            \noindent\allcaps{#2} % The author
-        \end{doublespace}
-    \end{fullwidth}
-}
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 \makeindex
 
@@ -70,7 +73,7 @@
 \tcolorboxenvironment{theorem}{enhanced jigsaw,colback={white}, colframe=LimeGreen,boxrule=1pt, sharp corners}
 
 %----------------------------------------------------------------------------------------
-% Custom Keywords Format
+% Keywords Format
 %----------------------------------------------------------------------------------------
 \newcommand{\keywordColor}{ProcessBlue}
 \newcommand{\keyword}[1]{\textcolor{\keywordColor}{#1}}
@@ -84,6 +87,17 @@
 \renewcommand{\thesubsubsection}{\thesubsection.\number\numexpr\value{subsubsection}\relax}
 \setcounter{secnumdepth}{3}
 \setcounter{chapter}{0}
+
+%----------------------------------------------------------------------------------------
+% Paragraph Hyphenation Format
+%----------------------------------------------------------------------------------------
+% Reduce hyphenation
+\setlength{\RaggedRightRightskip}{0pt plus 2.8em}
+
+%----------------------------------------------------------------------------------------
+% Aliases
+%----------------------------------------------------------------------------------------
+\newcommand{\biconditional}{\leftrightarrow}
 
 %----------------------------------------------------------------------------------------
 % Title and Author
