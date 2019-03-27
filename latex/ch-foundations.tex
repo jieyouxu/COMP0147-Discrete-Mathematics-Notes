@@ -35,10 +35,70 @@ For example, $a, b, c$ are references to actual objects in
 
 \subsection{Set Operations}
 \begin{itemize}
-    \item \textit{Union}: $A \cup B \equiv \set{x \given x \in A \lor x in B}$
+    \item \textit{Union}: $A \cup B \equiv \set{x \given x \in A \lor x \in B}$
     \item \textit{Intersection}: $A \cap B \equiv \set{x \given x \in A \land x \in B}$
     \item \textit{Relative Complement}: $A \Diff B \equiv \set{x \given x \in A \land x \not\in B}$
     \item \textit{Absolute Complement}: $\AbsComplement{A} \equiv U \Diff A \equiv \set{x \given x \in U \land x \not\in A}$
     \item \textit{Symmetric Difference}: $A \Delta B \equiv (A \Diff B) \cup (B \Diff A) \equiv (A \cup B)\Diff(A \cap B)$
     \item \textit{Cartesian Product}: $A \times B \equiv \set{(x, y) \given x \in A \land y \in B}$
 \end{itemize}
+
+\subsection{Boolean Algebra}
+\begin{definition}[De Morgan's Laws]
+\begin{align}
+    \neg (p \lor q ) &\equiv \neg p \land \neg q \\
+    \neg (p \land q) &\equiv \neg p \lor \neg q 
+\end{align}
+\end{definition}
+
+\begin{definition}[Idempotent Laws]
+\begin{align}
+    p \lor p &\equiv p \\
+    p \land p &\equiv p
+\end{align}
+
+\end{definition}
+
+\begin{definition}[Commutative Laws]
+\begin{align}
+    p \lor q &\equiv q \lor p \\
+    p \land q &\equiv q \land p
+\end{align}
+\end{definition}
+
+\begin{definition}[Associative Laws]
+\begin{align}
+    p \lor (q \lor r) &\equiv (p \lor q) \lor r \\
+    p \land (q \land r) &\equiv (p \land q) \land r
+\end{align}
+\end{definition}
+
+\begin{definition}[Distributive Laws]
+\begin{align}
+    p \land (q \lor r) &\equiv (p \land q) \lor (p \land r) \\
+    p \lor (q \land r) &\equiv (p \lor q) \land (p \lor r)
+\end{align}
+\end{definition}
+
+\begin{definition}[Identity Laws]
+\begin{align}
+    p \lor \False &\equiv p \\
+    p \lor \True &\equiv \True \\
+    p \land \True &\equiv p \\
+    p \land \False &\equiv \False
+\end{align}
+\end{definition}
+
+\begin{definition}[Absorption Laws]
+\begin{align}
+    p \lor (p \land q) &\equiv p \\
+    p \land (p \lor q) &\equiv p
+\end{align}
+\end{definition}
+
+\begin{definition}[Implication and Negation Laws]\ \\
+\begin{itemize}
+    \item \textit{Identity}: $p \to q \equiv \neg p \lor q$
+    \item \textit{Counter-example}: $\neg(p \to q) \equiv p \land \neg q$
+\end{itemize}
+\end{definition}

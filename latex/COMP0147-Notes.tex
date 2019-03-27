@@ -1,4 +1,4 @@
-\documentclass[a4paper, twoside]{book}
+\documentclass[a4paper, twoside, headsepline]{scrbook}
 
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -18,44 +18,16 @@
 \usepackage[hidelinks, breaklinks]{hyperref}
 
 % Fonts
-\usepackage{unicode-math}
-\setmainfont{Palatino}
-\setmathfont{Latin Modern Math}
-
-\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
-\let\mathbb\relax % remove the definition by unicode-math
-\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+\input{font-cfg.tex}
 
 % Math
-\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
-
-\newcommand{\Real}{\mathbb{R}}
-\newcommand{\Rational}{\mathbb{Q}}
-\newcommand{\Complex}{\mathbb{C}}
-\newcommand{\Int}{\mathbb{Z}}
-\newcommand{\PosInt}{\mathbb{Z}^{+}}
-\newcommand{\NegInt}{\mathbb{Z}^{-}}
-
-\DeclareMathOperator{\Exists}{\exists}
-\DeclareMathOperator{\Forall}{\forall}
-
-\DeclareMathOperator{\Diff}{\backslash}
-
-\newcommand{\AbsComplement}[1]{{#1}^{c}}
+\input{math-ops.tex}
 
 % Enumitem
 \setlist{nolistsep}
 
 % Theorems, Corollary, Lemma, Remark
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{remark}{Remark}
-
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[section]
-
-\renewcommand\qedsymbol{$\blacksquare$}
+\input{theorem-cfg.tex}
 
 % Title and Author
 \title{COMP0147 Discrete Mathematics for Computer Scientists Notes}
