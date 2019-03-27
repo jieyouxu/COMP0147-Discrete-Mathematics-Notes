@@ -2,28 +2,124 @@
 
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{minitoc}
-\usepackage[hidelinks]{hyperref}
 
+% Quotes and Citations
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage[autostyle, style=english]{csquotes}
+\usepackage[style=numeric, backend=bibtex, block=ragged, sorting=none]{biblatex}
+\addbibresource{citations.bib}
+
+% Links
+\usepackage[hidelinks, breaklinks]{hyperref}
+
+% Fonts
 \usepackage{unicode-math}
 \setmainfont{Palatino}
 \setmathfont{Latin Modern Math}
 
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\let\mathbb\relax % remove the definition by unicode-math
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
 
+% Math
+\DeclarePairedDelimiterX\set[1]\lbrace\rbrace{\def\given{\;\delimsize\vert\;}#1}
+
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Rational}{\mathbb{Q}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Int}{\mathbb{Z}}
+\newcommand{\PosInt}{\mathbb{Z}^{+}}
+\newcommand{\NegInt}{\mathbb{Z}^{-}}
+
+\DeclareMathOperator{\Exists}{\exists}
+\DeclareMathOperator{\Forall}{\forall}
+
+\DeclareMathOperator{\Diff}{\backslash}
+
+\newcommand{\AbsComplement}[1]{{#1}^{c}}
+
+% Enumitem
+\setlist{nolistsep}
+
+% Theorems, Corollary, Lemma, Remark
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Title and Author
 \title{COMP0147 Discrete Mathematics for Computer Scientists Notes}
 \author{Joe}
 
 \begin{document}
 \maketitle
 \dominitoc
+
+Notes adapted from lecture notes by Max Kanovich and Robin Hirsch \cite{kanovich-hirsch}.
 \tableofcontents
 
 \chapter{Foundations}
 \minitoc
 
 \section{Set Theory and Functions}
+
+\subsection{Set Notations}
+\begin{itemize}
+    \item Set definition: $A = \set{a, b, c}$
+    \item Set membership (element-of): $a \in A$
+    \item Set builder notation: $\set{x \given x \in \Real \land x^2 = x}$
+    \item Empty set: $\emptyset$
+\end{itemize}
+
+\subsection{Properties}
+\begin{itemize}
+    \item No structure
+    \item No order
+    \item No copies
+\end{itemize}
+
+For example, $a, b, c$ are references to actual objects in
+\begin{equation*}
+    \set{a, b, c} \Leftrightarrow \set{c, a, b} \Leftrightarrow \set{a, b, c, b}
+\end{equation*}
+
+\subsection{Set Equality}
+\begin{definition}[Set Equality]
+    Set $A = B$ iff:
+    \begin{enumerate}
+        \item $A \subseteq B$ $\implies$ $\Forall x (x \in A \to x \in B)$
+        \item $B \subseteq A$ $\implies$ $\Forall y (y \in B \to y \in A)$
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    $A = B \Leftrightarrow A \subseteq B \land B \subseteq A$
+\end{remark}
+
+\subsection{Set Operations}
+\begin{itemize}
+    \item \textit{Union}: $A \cup B \equiv \set{x \given x \in A \lor x in B}$
+    \item \textit{Intersection}: $A \cap B \equiv \set{x \given x \in A \land x \in B}$
+    \item \textit{Relative Complement}: $A \Diff B \equiv \set{x \given x \in A \land x \not\in B}$
+    \item \textit{Absolute Complement}: $\AbsComplement{A} \equiv U \Diff A \equiv \set{x \given x \in U \land x \not\in A}$
+    \item \textit{Symmetric Difference}: $A \Delta B \equiv (A \Diff B) \cup (B \Diff A) \equiv (A \cup B)\Diff(A \cap B)$
+    \item \textit{Cartesian Product}: $A \times B \equiv \set{(x, y) \given x \in A \land y \in B}$
+\end{itemize}
+
 % TODO
+
+
+%%% BIBLIOGRAPHY
+\printbibliography
 
 \end{document}
