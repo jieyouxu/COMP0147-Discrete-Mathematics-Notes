@@ -1,4 +1,4 @@
-\section{Set Theory and Functions}
+\section{Set Theory}
 
 \subsection{Set Notations}
 \begin{itemize}
@@ -214,4 +214,55 @@ For example, $a, b, c$ are references to actual objects in
     \begin{equation}
         x \in \bigcap_{i \in I} A_i \Leftrightarrow \Forall i \in I \colon x \in A_i
     \end{equation}
+\end{definition}
+
+\section{Functions}
+\begin{definition}[Function]
+    A function $f$ is a mapping from $X$ to $Y$
+    \begin{equation}
+        f \colon X \mapsto Y
+    \end{equation}
+    \begin{itemize}
+        \item $\Domain{f} = X$
+        \item $\Image{f} = f(X)$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Total Function]
+    A function is \textit{total} if
+    \begin{equation}
+        \Domain{f} = X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Partial Function]
+    A function is \textit{partial} if
+    \begin{equation}
+        \Domain{f} \subseteq X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Surjection]
+    A function $f \colon X \mapsto Y$ is \textit{surjective} iff
+    \begin{equation}
+        f(X) = Y \Leftrightarrow \Forall y \in Y \colon \Exists x \in X \colon f(x) = y
+    \end{equation}
+    Namely each $y \in Y$ has a corresponding $x \in X$.
+\end{definition}
+
+\begin{definition}[Injection (Encodings, One-to-one)]
+    A function $f \colon X \mapsto Y$ is \textit{injective} iff
+    \begin{align}
+        &\Forall x_1, x_2 \in X \colon x_1 \neq x_2 \to f(x_1) \neq f(x_2) \\
+        \Leftrightarrow &\Forall x_1, x_2 \in X \colon f(x_1) = f(x_2) \to x_1 = x_2
+    \end{align}
+    Namely each distinct element $x \in X$ maps to a different element in $Y$.
+\end{definition}
+
+\begin{definition}[Bijection]
+    A function $f \colon X \mapsto Y$ is \textit{bijective} iff $f$ is both \textit{injective} and \textit{surjective}.
+    \begin{equation}
+        \mathrm{Bijective}(f) \equiv \mathrm{Injective}(f) \land \mathrm{Surjective}(f)
+    \end{equation}
+    The \textit{inverse bijection} $\Inverse{f} \colon Y \mapsto X$ does exist.
 \end{definition}
