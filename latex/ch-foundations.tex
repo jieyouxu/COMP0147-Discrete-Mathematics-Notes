@@ -269,11 +269,11 @@ For example, $a, b, c$ are references to actual objects in
 
 \subsection{Composition of Injections}
 \begin{proposition}[Composition of Injection]
-    Given injections $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
+    Given \textit{injections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
     \begin{equation}
         h(x) = g(f(x))
     \end{equation}
-    Namely $h = g \circ f$ where $h$ is a function composed from $g$ and $f$ with $f$ applied first.
+    Then $h$ is also an \textit{injective} function. Namely $h = g \circ f$ where $h$ is composed from $g$ and $f$ with $f$ applied first.
 \end{proposition}
 
 \begin{proof}
@@ -286,4 +286,28 @@ For example, $a, b, c$ are references to actual objects in
         h(x_1) = g(f(x_1)) \neq g(f(x_2)) = h(x_2)
     \end{equation}
     $h$ is \textit{injective} consequently.
+\end{proof}
+
+\subsection{Composition of Surjection}
+\begin{proposition}[Composition of Surjection]
+    Given \textit{surjections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Then $h$ is also an \textit{surjective} function.
+\end{proposition}
+
+\begin{proof}
+    To prove $h \colon X \mapsto Z$ is \textit{injective}, it is required to prove that
+    \begin{equation}
+        \Forall z \in Z \colon \Exists x \in X \colon h(x) = z
+    \end{equation}
+    Where $h(x) \Leftrightarrow (g \circ f)(x) \Leftrightarrow g(f(x))$.
+    
+    Since for all elements $z \in Z$ ($\Forall z \in Z$):
+    \begin{enumerate}
+        \item That $g \colon Y \mapsto Z$ is \textit{surjective} by definition, then $\Exists y \in Y \colon g(y) = z$.
+        \item That $f \colon X \mapsto Y$ is \textit{surjective} by definition, then $\Exists x \in X \colon f(x) = y$.
+    \end{enumerate}
+    Then $\Forall z \in Z \colon \Exists x \in X \colon h(x) = (g \circ f)(x) = g(f(x)) = g(y) = z$ holds true.
 \end{proof}
