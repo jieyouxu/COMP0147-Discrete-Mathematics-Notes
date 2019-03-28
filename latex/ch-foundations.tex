@@ -294,7 +294,7 @@ For example, $a, b, c$ are references to actual objects in
     \begin{equation}
         h(x) = g(f(x))
     \end{equation}
-    Then $h$ is also an \textit{surjective} function.
+    Then $h$ is also a \textit{surjective} function.
 \end{proposition}
 
 \begin{proof}
@@ -304,10 +304,19 @@ For example, $a, b, c$ are references to actual objects in
     \end{equation}
     Where $h(x) \Leftrightarrow (g \circ f)(x) \Leftrightarrow g(f(x))$.
     
-    Since for all elements $z \in Z$ ($\Forall z \in Z$):
+    Given any element $z \in Z$ ($\Forall z \in Z$):
     \begin{enumerate}
         \item That $g \colon Y \mapsto Z$ is \textit{surjective} by definition, then $\Exists y \in Y \colon g(y) = z$.
         \item That $f \colon X \mapsto Y$ is \textit{surjective} by definition, then $\Exists x \in X \colon f(x) = y$.
     \end{enumerate}
     Then $\Forall z \in Z \colon \Exists x \in X \colon h(x) = (g \circ f)(x) = g(f(x)) = g(y) = z$ holds true.
 \end{proof}
+
+\subsection{Composition of Bijection}
+\begin{proposition}[Composition of Bijection]
+    Given \textit{bijections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their composition $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Then $h$ is also a \textit{bijective} function; an \textit{inverse bijection} $\Inverse{h} \colon Z \mapsto X$ also exists.
+\end{proposition}
