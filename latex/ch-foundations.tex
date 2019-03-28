@@ -266,3 +266,24 @@ For example, $a, b, c$ are references to actual objects in
     \end{equation}
     The \textit{inverse bijection} $\Inverse{f} \colon Y \mapsto X$ does exist.
 \end{definition}
+
+\subsection{Composition of Injections}
+\begin{proposition}[Composition of Injection]
+    Given injections $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Namely $h = g \circ f$ where $h$ is a function composed from $g$ and $f$ with $f$ applied first.
+\end{proposition}
+
+\begin{proof}
+    Given any $x_1, x_2 \in X$ where $x_1 \neq x_2$, then
+    \begin{equation}
+        f(x_1) \ne f(x_2)
+    \end{equation}
+    as $f$ is \textit{injective}, and thus
+    \begin{equation}
+        h(x_1) = g(f(x_1)) \neq g(f(x_2)) = h(x_2)
+    \end{equation}
+    $h$ is \textit{injective} consequently.
+\end{proof}
