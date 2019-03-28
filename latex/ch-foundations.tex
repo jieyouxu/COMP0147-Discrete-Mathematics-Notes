@@ -194,7 +194,7 @@ For example, $a, b, c$ are references to actual objects in
 \end{align}
 \end{definition}
 
-\begin{definition}[Arbitrary Union]
+\begin{definition}[Arbitrary Union]\ \\
     Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
     \begin{equation}
         A_1 \cup A_2 \cup \dots \cup A_n \equiv \bigcup_{i \in I} A_i
@@ -205,7 +205,7 @@ For example, $a, b, c$ are references to actual objects in
     \end{equation}
 \end{definition}
 
-\begin{definition}[Arbitrary Intersection]
+\begin{definition}[Arbitrary Intersection]\ \\
     Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
     \begin{equation}
         A_1 \cap A_2 \cap \dots \cap A_n \equiv \bigcap_{i \in I} A_i
@@ -320,3 +320,44 @@ For example, $a, b, c$ are references to actual objects in
     \end{equation}
     Then $h$ is also a \textit{bijective} function; an \textit{inverse bijection} $\Inverse{h} \colon Z \mapsto X$ also exists.
 \end{proposition}
+
+\subsection{Cardinality of Sets}
+\begin{definition}[Cardinality]
+    The number of elements in a set $X$ is denoted $\VSBars{X}$.
+\end{definition}
+
+\begin{definition}[Equal Cardinality and Bijection]
+    \begin{equation}
+        \VSBars{X} = \VSBars{Y}
+    \end{equation}
+    Holds true if there exists a \textit{bijection} $h \colon X \mapsto Y$ (one-to-one correspondence between $X$ and $Y$).
+    
+    Namely, $X$ and $Y$ have the same number of distinct elements, and each distinct element $x \in X$ corresponds to exactly one distinct element $y \in Y$.
+\end{definition}
+
+\begin{theorem}[Cantor-Bernstein]
+    Given
+    \begin{enumerate}
+        \item \textit{injective} function $f \colon X \mapsto Y$
+        \item \textit{injective} function $g \colon Y \mapsto X$
+    \end{enumerate}
+    Then there exists a \textit{bijective} function $h \colon X \mapsto Y$.
+    
+    Equivalently,
+    \begin{equation}
+        (\VSBars{X} \le \VSBars{Y}) \land (\VSBars{Y} \le \VSBars{X}) \to (\VSBars{X} = \VSBars{Y})
+    \end{equation}
+\end{theorem}
+
+\begin{remark}
+    Examples include countable sets, enumerable sets
+    \begin{equation}
+        \VSBars{\Rational} = \VSBars{\Int} = \VSBars{\NatNum} = \AlephZero
+    \end{equation}
+    Where the cardinality of countable sets such as the \textit{rational numbers}, \textit{integers} and the \textit{natural numbers} is denoted as "alpeh-zero" ($\AlephZero$).
+    
+    On the other hand, continuum such as the \textit{real numbers} are not countable and as such
+    \begin{equation}
+        \VSBars{\Real} > \AlephZero
+    \end{equation}
+\end{remark}
