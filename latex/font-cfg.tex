@@ -3,11 +3,12 @@
 \setmathfont{Latin Modern Math}
 \setsansfont{Avenir}
 
+\let\mathrm\relax
+\DeclareMathAlphabet{\mathrm}{TU}{lmodern}{m}{n}
+
+\DeclareMathAlphabet{\mathbf}{TU}{lmodern}{bx}{n}
+\DeclareMathAlphabet{\mathit}{TU}{lmodern}{m}{it}
+
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \let\mathbb\relax % remove the definition by unicode-math
-
-\let\mathrm\relax
-\DeclareMathAlphabet{\mathrm}{TU}{FreeSans}{m}{n}
-
-\DeclareMathAlphabet{\mathbf}{TU}{FreeSans}{bx}{n}
-\DeclareMathAlphabet{\mathit}{TU}{FreeSans}{m}{it}
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
