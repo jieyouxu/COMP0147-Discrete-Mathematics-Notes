@@ -101,7 +101,7 @@ For example, $a, b, c$ are references to actual objects in
     \item \textit{Identity}: $p \to q \equiv \neg p \lor q$
     \item \textit{Counter-example}: $\neg(p \to q) \equiv p \land \neg q$
     \item \textit{Equivalences}: $p \to q \to r \equiv (p \land q) \to r \equiv q\ to (p \to r)$
-    \item \textit{Absorbance}:
+    \item \textit{Absorption}:
         \subitem $p \to \True \equiv T$
         \subitem $p \to \False \equiv \neg p$
         \subitem $\True \to p \equiv p$
@@ -114,4 +114,104 @@ For example, $a, b, c$ are references to actual objects in
     \item \textit{Reduction to Absurdity}: $\neg p \to \False \equiv p$
     % TODO
 \end{itemize}
+\end{definition}
+
+\subsection{Set Algebra}
+\begin{definition}[De Morgan's Laws]
+\begin{align}
+    \AbsComplement{(A \cup B)} &\equiv \AbsComplement{A} \cap \AbsComplement{B} \\
+    \AbsComplement{(A \cap B)} &\equiv \AbsComplement{A} \cup \AbsComplement{B}
+\end{align}
+\end{definition}
+
+\begin{definition}[Idempotent Laws]
+\begin{align}
+    A \cup A &\equiv A \\
+    A \cap A &\equiv A
+\end{align}
+\end{definition}
+
+\begin{definition}[Commutative Laws]
+\begin{align}
+    A \cup B &\equiv B \cup A \\
+    A \cap B &\equiv B \cap A
+\end{align}
+\end{definition}
+
+\begin{definition}[Associativity Laws]
+\begin{align}
+    A \cup (B \cup C) &\equiv (A \cup B) \cup C \\
+    A \cap (B \cap C) &\equiv (A \cap B) \cap C
+\end{align}
+\end{definition}
+
+\begin{definition}[Distributive Laws]
+\begin{align}
+    A \cap (B \cup C) &\equiv (A \cap B) \cup (B \cap C)\\
+    A \cup (B \cap C) &\equiv (A \cup B) \cap (B \cup C)
+\end{align}
+\end{definition}
+
+\begin{definition}[Identity Laws]
+\begin{align}
+    A \cup \emptyset &\equiv A \\
+    A \cap \emptyset &\equiv \emptyset \\
+    A \cap U &\equiv A \\
+    A \cup U &\equiv U
+\end{align}
+\end{definition}
+
+\begin{definition}[Absorption Laws]
+\begin{align}
+    A \cup (A \cap B) &\equiv A \\
+    A \cap (A \cup B) &\equiv A
+\end{align}
+\end{definition}
+
+\begin{definition}[Difference Identity Laws]
+\begin{align}
+    C \Diff (A \cup B) &\equiv (C \Diff A) \cap (C \Diff B) \\
+    C \Diff (A \cap B) &\equiv (C \Diff A) \cup (C \Diff B)
+\end{align}
+\end{definition}
+
+\begin{definition}[Complement-Difference Identity Law]
+\begin{equation}
+    C \Diff D \equiv C \cap \AbsComplement{D}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Double Complement Law]
+\begin{equation}
+    \AbsComplement{(\AbsComplement{D})} \equiv D
+\end{equation}
+\end{definition}
+
+\begin{definition}[Contraposition]
+\begin{align}
+    C \subseteq D &\Leftrightarrow \AbsComplement{D} \subseteq \AbsComplement{C} \\
+    C = D &\Leftrightarrow \AbsComplement{C} = \AbsComplement{D}
+\end{align}
+\end{definition}
+
+\begin{definition}[Arbitrary Union]
+    Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
+    \begin{equation}
+        A_1 \cup A_2 \cup \dots \cup A_n \equiv \bigcup_{i \in I} A_i
+    \end{equation}
+    Then
+    \begin{equation}
+        x \in \bigcup_{i \in I} A_i \Leftrightarrow \Exists i \in I \colon x \in A_i
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Arbitrary Intersection]
+    Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
+    \begin{equation}
+        A_1 \cap A_2 \cap \dots \cap A_n \equiv \bigcap_{i \in I} A_i
+    \end{equation}
+    Then
+    \begin{equation}
+        x \in \bigcap_{i \in I} A_i \Leftrightarrow \Forall i \in I \colon x \in A_i
+    \end{equation}
 \end{definition}
