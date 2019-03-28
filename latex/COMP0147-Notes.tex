@@ -6,6 +6,7 @@
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{minitoc}
+\usepackage{geometry}
 
 % Quotes and Citations
 \usepackage[utf8]{inputenc}
@@ -26,6 +27,9 @@
 % Enumitem
 \setlist{nolistsep}
 
+% Utils
+\input{utils.tex}
+
 % Theorems, Corollary, Lemma, Remark
 \input{theorem-cfg.tex}
 
@@ -34,7 +38,11 @@
 \author{Joe}
 
 \begin{document}
+\newgeometry{centering}    %%% Center title page
 \maketitle
+\restoregeometry 
+\blankpage
+
 \dominitoc
 
 Notes adapted from lecture notes by Max Kanovich and Robin Hirsch \cite{kanovich-hirsch}.
