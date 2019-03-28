@@ -100,5 +100,18 @@ For example, $a, b, c$ are references to actual objects in
 \begin{itemize}
     \item \textit{Identity}: $p \to q \equiv \neg p \lor q$
     \item \textit{Counter-example}: $\neg(p \to q) \equiv p \land \neg q$
+    \item \textit{Equivalences}: $p \to q \to r \equiv (p \land q) \to r \equiv q\ to (p \to r)$
+    \item \textit{Absorbance}:
+        \subitem $p \to \True \equiv T$
+        \subitem $p \to \False \equiv \neg p$
+        \subitem $\True \to p \equiv p$
+        \subitem $\False \to p \equiv T$
+    \item \textit{Contrapositive}: $p \to q \equiv \neg q \to \neg p$
+    \item \textit{Law of Excluded Middle}: 
+        \subitem $p \lor \neg p \equiv \True$
+        \subitem $p \land \neg p \equiv \False$
+    \item \textit{Double Negation}: $\neg \neg p \equiv p$
+    \item \textit{Reduction to Absurdity}: $\neg p \to \False \equiv p$
+    % TODO
 \end{itemize}
 \end{definition}
