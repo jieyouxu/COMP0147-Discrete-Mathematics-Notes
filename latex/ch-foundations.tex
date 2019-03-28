@@ -361,3 +361,62 @@ For example, $a, b, c$ are references to actual objects in
         \VSBars{\Real} > \AlephZero
     \end{equation}
 \end{remark}
+
+\section{Permutations}
+\begin{definition}[Permutation]
+    The bijection -- \textit{permutation} -- of
+    \begin{equation}
+        \begin{matrix}
+            1 &2 &3 &\cdots &n \\
+            \downarrow &\downarrow &\downarrow &\cdots &\downarrow \\
+            \Permutate{1} &\Permutate{2} &\Permutate{3} &\cdots &\Permutate{n}
+        \end{matrix}
+    \end{equation}
+    
+    Is denoted as
+    \begin{equation}
+        \begin{pmatrix}
+            1 &2 &3 &\cdots &n \\
+            \Permutate{1} &\Permutate{2} &\Permutate{3} &\cdots &\Permutate{n}
+        \end{pmatrix}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Counting Permutations]
+    \begin{equation}
+        \VSBars{S_n} \equiv n!
+    \end{equation}
+    Which is the number of different ways to permutate the original set of elements $S_n$.
+\end{definition}
+
+\begin{remark}
+    For example, with $S_3 = \set{1, 2, 3}$, there are $3! = 6$ different ways to arrange the three distinct elements
+    \begin{equation}
+        \begin{matrix}
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                1 & 2 & 3
+            \end{pmatrix} \quad
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                1 & 3 & 2
+            \end{pmatrix} \quad
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                2 & 1 & 3
+            \end{pmatrix}    \\[1em]
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                2 & 3 & 1
+            \end{pmatrix} \quad
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                3 & 1 & 2
+            \end{pmatrix} \quad
+            \begin{pmatrix}
+                1 & 2 & 3 \\
+                3 & 2 & 1
+            \end{pmatrix}\\
+        \end{matrix}
+    \end{equation}
+\end{remark}

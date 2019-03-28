@@ -46,7 +46,7 @@ Core Topics:
   - Diagonalizing matrices
     - Calculating polynomials in diagonalizing matrices
   - Singular value decomposition
-- Couting
+- Counting
   - Combinatorics
   - Permutations
   - Binomial theorem
