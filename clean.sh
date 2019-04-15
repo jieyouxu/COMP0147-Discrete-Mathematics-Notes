@@ -1,0 +1,1 @@
+./latex-clean.sh latex
