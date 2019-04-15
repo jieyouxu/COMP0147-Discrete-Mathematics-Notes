@@ -1,0 +1,148 @@
+\chapter{Functions}
+
+\section{Function Basics}
+
+\begin{definition}[Function]
+    A function $f$ is a mapping from $X$ to $Y$
+    \begin{equation}
+        f \colon X \mapsto Y
+    \end{equation}
+    \begin{itemize}
+        \item $\Domain{f} = X$
+        \item $\Image{f} = f(X)$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Total Function]
+    A function is \textit{total} if
+    \begin{equation}
+        \Domain{f} = X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Partial Function]
+    A function is \textit{partial} if
+    \begin{equation}
+        \Domain{f} \subseteq X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Surjection]
+    A function $f \colon X \mapsto Y$ is \textit{surjective} iff
+    \begin{equation}
+        f(X) = Y \Leftrightarrow \Forall y \in Y \colon \Exists x \in X \colon f(x) = y
+    \end{equation}
+    Namely each $y \in Y$ has a corresponding $x \in X$.
+\end{definition}
+
+\begin{definition}[Injection (Encodings, One-to-one)]
+    A function $f \colon X \mapsto Y$ is \textit{injective} iff
+    \begin{align}
+        &\Forall x_1, x_2 \in X \colon x_1 \neq x_2 \to f(x_1) \neq f(x_2) \\
+        \Leftrightarrow &\Forall x_1, x_2 \in X \colon f(x_1) = f(x_2) \to x_1 = x_2
+    \end{align}
+    Namely each distinct element $x \in X$ maps to a different element in $Y$.
+\end{definition}
+
+\begin{definition}[Bijection]
+    A function $f \colon X \mapsto Y$ is \textit{bijective} iff $f$ is both \textit{injective} and \textit{surjective}.
+    \begin{equation}
+        \mathrm{Bijective}(f) \coloneqq \mathrm{Injective}(f) \land \mathrm{Surjective}(f)
+    \end{equation}
+    The \textit{inverse bijection} $\Inverse{f} \colon Y \mapsto X$ does exist.
+\end{definition}
+
+\section{Composition of Injections}
+\begin{proposition}[Composition of Injection]
+    Given \textit{injections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Then $h$ is also an \textit{injective} function. Namely $h = g \circ f$ where $h$ is composed from $g$ and $f$ with $f$ applied first.
+\end{proposition}
+
+\begin{proof}
+    Given any $x_1, x_2 \in X$ where $x_1 \neq x_2$, then
+    \begin{equation}
+        f(x_1) \ne f(x_2)
+    \end{equation}
+    as $f$ is \textit{injective}, and thus
+    \begin{equation}
+        h(x_1) = g(f(x_1)) \neq g(f(x_2)) = h(x_2)
+    \end{equation}
+    $h$ is \textit{injective} consequently.
+\end{proof}
+
+\section{Composition of Surjection}
+\begin{proposition}[Composition of Surjection]
+    Given \textit{surjections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Then $h$ is also a \textit{surjective} function.
+\end{proposition}
+
+\begin{proof}
+    To prove $h \colon X \mapsto Z$ is \textit{injective}, it is required to prove that
+    \begin{equation}
+        \Forall z \in Z \colon \Exists x \in X \colon h(x) = z
+    \end{equation}
+    Where $h(x) \Leftrightarrow (g \circ f)(x) \Leftrightarrow g(f(x))$.
+    
+    Given any element $z \in Z$ ($\Forall z \in Z$):
+    \begin{enumerate}
+        \item That $g \colon Y \mapsto Z$ is \textit{surjective} by definition, then $\Exists y \in Y \colon g(y) = z$.
+        \item That $f \colon X \mapsto Y$ is \textit{surjective} by definition, then $\Exists x \in X \colon f(x) = y$.
+    \end{enumerate}
+    Then $\Forall z \in Z \colon \Exists x \in X \colon h(x) = (g \circ f)(x) = g(f(x)) = g(y) = z$ holds true.
+\end{proof}
+
+\section{Composition of Bijection}
+\begin{proposition}[Composition of Bijection]
+    Given \textit{bijections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their composition $h \colon X \mapsto Z$ is given by
+    \begin{equation}
+        h(x) = g(f(x))
+    \end{equation}
+    Then $h$ is also a \textit{bijective} function; an \textit{inverse bijection} $\Inverse{h} \colon Z \mapsto X$ also exists.
+\end{proposition}
+
+\section{Cardinality of Sets}
+\begin{definition}[Cardinality]
+    The number of elements in a set $X$ is denoted $\VSBars{X}$.
+\end{definition}
+
+\begin{definition}[Equal Cardinality and Bijection]
+    \begin{equation}
+        \VSBars{X} = \VSBars{Y}
+    \end{equation}
+    Holds true if there exists a \textit{bijection} $h \colon X \mapsto Y$ (one-to-one correspondence between $X$ and $Y$).
+    
+    Namely, $X$ and $Y$ have the same number of distinct elements, and each distinct element $x \in X$ corresponds to exactly one distinct element $y \in Y$.
+\end{definition}
+
+\begin{theorem}[Cantor-Bernstein]
+    Given
+    \begin{enumerate}
+        \item \textit{injective} function $f \colon X \mapsto Y$
+        \item \textit{injective} function $g \colon Y \mapsto X$
+    \end{enumerate}
+    Then there exists a \textit{bijective} function $h \colon X \mapsto Y$.
+    
+    Equivalently,
+    \begin{equation}
+        (\VSBars{X} \le \VSBars{Y}) \land (\VSBars{Y} \le \VSBars{X}) \to (\VSBars{X} = \VSBars{Y})
+    \end{equation}
+\end{theorem}
+
+\begin{remark}
+    Examples include countable sets, enumerable sets
+    \begin{equation}
+        \VSBars{\Rational} = \VSBars{\Int} = \VSBars{\NatNum} = \AlephZero
+    \end{equation}
+    Where the cardinality of countable sets such as the \textit{rational numbers}, \textit{integers} and the \textit{natural numbers} is denoted as "alpeh-zero" ($\AlephZero$).
+    
+    On the other hand, continuum such as the \textit{real numbers} are not countable and as such
+    \begin{equation}
+        \VSBars{\Real} > \AlephZero
+    \end{equation}
+\end{remark}

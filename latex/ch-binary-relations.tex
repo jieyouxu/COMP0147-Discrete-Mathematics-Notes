@@ -1,0 +1,131 @@
+\chapter{Binary Relations}
+
+\begin{definition}[Binary Relation]
+	A binary relation $R(x, y)$ describes some relationship between $x$ and $y$ where $R \colon X \to Y$, $R \subseteq X \times Y$, $x \in X$ and $y \in Y$. This relation can be expressed in infix notation as $xRy$.
+\end{definition}
+
+\section{Equivalence Relations}
+\begin{definition}[Equivalence Relation]
+	A binary relation $E(x, y)$ is an \textit{equivalence relation} on $X$ iff it satisfies all three conditions:
+    \begin{enumerate}
+        \item \textbf{Reflexivity}
+            \subitem $\Forall x \in X \colon E(x, x)$
+        \item \textbf{Symmetry}
+            \subitem $\Forall x, y \in X \colon E(x, y) \to E(y, x)$
+        \item \textbf{Transitivity}
+            \subitem $\Forall x, y, z \in X \colon E(x, y) \land E(y, z) \to E(x, z)$
+    \end{enumerate}
+\end{definition}
+
+\section{Equivalence Classes}
+\begin{definition}[Equivalence Class]
+    If $a \in X$, the \textit{equivalence class} $[a]$ is
+    \begin{equation}
+        [a] \coloneqq \set{x \in X \colon E(x, a)} \subseteq X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Congruence and Equivalence Class of mod $m$ on $\Int$]
+    For \textit{congruence mod} $m$ on $\Int$, if $a \in \Int$ then the \textit{congruence class} of $a$ is
+    \begin{equation}
+        [a]_m \coloneqq \set{x \in \Int \colon x = a + km}
+    \end{equation}
+    Where $k \in \Int$. Since $x = a + km \Leftrightarrow x \equiv a \bmod m$, then the \textit{equivalence class} of $a$ is also the \textit{congruence class}.
+    \begin{equation}
+        \Leftrightarrow [a]_m \coloneqq \set{x \in \Int \colon x \equiv a \bmod m}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Set of Remainders]
+    Over $\Int$, the \textit{remainder} $r$ from the integer division $k \div m$ is \begin{equation}
+        r \bmod m \equiv k \bmod m
+    \end{equation}
+    Then the set of remainders $G_m$ from the integer division $k \div m$ is defined by
+    \begin{equation}
+        G_m \coloneqq \set{0, 1, 2, \dots, m - 2, m - 1}
+    \end{equation}
+\end{definition}
+
+\section{Quotient Groups}
+\begin{definition}[Quotient Group]
+    A \textit{quotient group} is a group constructed via congruence mod $m$.
+\end{definition}
+
+\begin{definition}[Congruence Class]
+    If $m \le 2$ and $a \in \Int$ then the \textit{congruence class} of $a \bmod m$ is $[a] \subseteq \Int$
+    \begin{align}
+        [a] &\coloneqq \set{b \in \Int \colon b \equiv a \bmod m} \\
+        & \Leftrightarrow \set{a + km \colon k \in \Int} \\
+        & \Leftrightarrow \set{\dots, a - 2m, a - m, a, a + m, a + 2m, \dots}
+    \end{align}
+\end{definition}
+
+\begin{remark}
+    Let $E(x, y) \coloneqq \enquote{x - y \equiv 0 \bmod 2}$, that is, $x - y$ is divisible by $2$. Then,
+    \begin{equation}
+        [k]_2 \coloneqq \set{y \colon E(k, y)}
+    \end{equation}
+    
+    Where $[k]_2$ is the congruence class of integers modulo $2$.
+    
+    Computing $[0]_2$ and $[1]_2$ yields
+    \begin{itemize}
+        \item $[0]_2 = \set{0, 2, -2, 4, -4, \dots, 2n, -2n, \dots}$
+        \item $[1]_2 = \set{1, -1, 3, -3, \dots, 2n + 1, \dots}$
+    \end{itemize}
+    
+    Observe that
+    \begin{equation}
+        [1]_2 \oplus [1]_2 \Leftrightarrow [2]_2 \Leftrightarrow [0]_2
+    \end{equation}
+    
+    It can be deduced that $[0]_2$ and $[1]_2$ are two congruence (and equivalence) classes which partition the integers $\Int$ into two disjoint subsets -- integers which are odd, and integers which are even. This may be denoted as
+    \begin{equation}
+        \Int/E \equiv \set{\mathrm{EVEN}, \mathrm{ODD}}
+    \end{equation}
+\end{remark}
+
+\begin{definition}[Congruence Modular Arithmetic $\pmod m$ on $\Int$]
+    \begin{align}
+        [a]_m \oplus [b]_m &\equiv [a + b]_m \\
+        [a]_m \otimes [b]_m &\equiv [a \cdot b]_m
+    \end{align}
+    
+    If $a_1 \equiv a_2 \bmod m$ and $b_1 \equiv b_2 \bmod m$ then
+    \begin{align}
+        a_1 + b_1 &\equiv a_2 + b_2 \bmod m \\
+        a_1 \cdot b_1 &\equiv a_2 \cdot b_2 \bmod m \\
+    \end{align}
+\end{definition}
+
+\begin{remark}
+    We may introduce addition ($+$) and multiplication ($\ast$) over the remainders $G_m$ previously defined as
+    \begin{equation}
+        G_m \coloneqq \set{0, 1, 2, \dots, m - 2, m - 1}
+    \end{equation}
+    
+    For example, given $m = 3$, then the multiplication and addition table of $+ \pmod 3$ and $\ast \pmod 3$ over $G_3$ can be computed:
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{ l | l l l }
+        \toprule
+        $+ \pmod 3$ & 0 & 1 & 2 \\ 
+        \midrule
+        0           & 0 & 1 & 2 \\ 
+        1           & 1 & 2 & 0 \\ 
+        2           & 2 & 0 & 1 \\ 
+        \bottomrule
+    \end{tabular}
+    \quad
+    \begin{tabular}{ l | l l l }
+        \toprule
+        $* \pmod 3$ & 0 & 1 & 2 \\ 
+        \midrule
+        0           & 0 & 0 & 0 \\ 
+        1           & 0 & 1 & 2 \\ 
+        2           & 0 & 2 & 1 \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{Multiplication and Addition Table of $G_3$}
+    \end{table}
+\end{remark}

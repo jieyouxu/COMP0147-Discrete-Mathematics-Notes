@@ -1,0 +1,217 @@
+\chapter{Set Theory}
+
+\section{Set Notations}
+\begin{itemize}
+    \item Set definition: $A = \set{a, b, c}$
+    \item Set membership (element-of): $a \in A$
+    \item Set builder notation: $\set{x \given x \in \Real \land x^2 = x}$
+    \item Empty set: $\emptyset$
+\end{itemize}
+
+\section{Properties}
+\begin{itemize}
+    \item No structure
+    \item No order
+    \item No copies
+\end{itemize}
+
+For example, $a, b, c$ are references to actual objects in
+\begin{equation*}
+    \set{a, b, c} \Leftrightarrow \set{c, a, b} \Leftrightarrow \set{a, b, c, b}
+\end{equation*}
+
+\section{Set Equality}
+\begin{definition}[Set Equality]
+    Set $A = B$ iff:
+    \begin{enumerate}
+        \item $A \subseteq B$ $\implies$ $\Forall x (x \in A \to x \in B)$
+        \item $B \subseteq A$ $\implies$ $\Forall y (y \in B \to y \in A)$
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    $A = B \Leftrightarrow A \subseteq B \land B \subseteq A$
+\end{remark}
+
+\section{Set Operations}
+\begin{itemize}
+    \item \textit{Union}: $A \cup B \coloneqq \set{x \given x \in A \lor x \in B}$
+    \item \textit{Intersection}: $A \cap B \coloneqq \set{x \given x \in A \land x \in B}$
+    \item \textit{Relative Complement}: $A \Diff B \coloneqq \set{x \given x \in A \land x \not\in B}$
+    \item \textit{Absolute Complement}: $\AbsComplement{A} \coloneqq U \Diff A \coloneqq \set{x \given x \in U \land x \not\in A}$
+    \item \textit{Symmetric Difference}: $A \Delta B \coloneqq (A \Diff B) \cup (B \Diff A) \coloneqq (A \cup B)\Diff(A \cap B)$
+    \item \textit{Cartesian Product}: $A \times B \coloneqq \set{(x, y) \given x \in A \land y \in B}$
+\end{itemize}
+
+\section{Boolean Algebra}
+\begin{definition}[De Morgan's Laws]
+\begin{align}
+    \neg (p \lor q ) &\coloneqq \neg p \land \neg q \\
+    \neg (p \land q) &\coloneqq \neg p \lor \neg q 
+\end{align}
+\end{definition}
+
+\begin{definition}[Idempotent Laws]
+\begin{align}
+    p \lor p &\coloneqq p \\
+    p \land p &\coloneqq p
+\end{align}
+
+\end{definition}
+
+\begin{definition}[Commutative Laws]
+\begin{align}
+    p \lor q &\coloneqq q \lor p \\
+    p \land q &\coloneqq q \land p
+\end{align}
+\end{definition}
+
+\begin{definition}[Associative Laws]
+\begin{align}
+    p \lor (q \lor r) &\coloneqq (p \lor q) \lor r \\
+    p \land (q \land r) &\coloneqq (p \land q) \land r
+\end{align}
+\end{definition}
+
+\begin{definition}[Distributive Laws]
+\begin{align}
+    p \land (q \lor r) &\coloneqq (p \land q) \lor (p \land r) \\
+    p \lor (q \land r) &\coloneqq (p \lor q) \land (p \lor r)
+\end{align}
+\end{definition}
+
+\begin{definition}[Identity Laws]
+\begin{align}
+    p \lor \False &\coloneqq p \\
+    p \lor \True &\coloneqq \True \\
+    p \land \True &\coloneqq p \\
+    p \land \False &\coloneqq \False
+\end{align}
+\end{definition}
+
+\begin{definition}[Absorption Laws]
+\begin{align}
+    p \lor (p \land q) &\coloneqq p \\
+    p \land (p \lor q) &\coloneqq p
+\end{align}
+\end{definition}
+
+\begin{definition}[Implication and Negation Laws]\ \\
+\begin{itemize}
+    \item \textit{Identity}: $p \to q \coloneqq \neg p \lor q$
+    \item \textit{Counter-example}: $\neg(p \to q) \coloneqq p \land \neg q$
+    \item \textit{Equivalences}: $p \to q \to r \coloneqq (p \land q) \to r \coloneqq q\ to (p \to r)$
+    \item \textit{Absorption}:
+        \subitem $p \to \True \coloneqq T$
+        \subitem $p \to \False \coloneqq \neg p$
+        \subitem $\True \to p \coloneqq p$
+        \subitem $\False \to p \coloneqq T$
+    \item \textit{Contrapositive}: $p \to q \coloneqq \neg q \to \neg p$
+    \item \textit{Law of Excluded Middle}: 
+        \subitem $p \lor \neg p \coloneqq \True$
+        \subitem $p \land \neg p \coloneqq \False$
+    \item \textit{Double Negation}: $\neg \neg p \coloneqq p$
+    \item \textit{Reduction to Absurdity}: $\neg p \to \False \coloneqq p$
+    % TODO
+\end{itemize}
+\end{definition}
+
+\section{Set Algebra}
+\begin{definition}[De Morgan's Laws]
+\begin{align}
+    \AbsComplement{(A \cup B)} &\coloneqq \AbsComplement{A} \cap \AbsComplement{B} \\
+    \AbsComplement{(A \cap B)} &\coloneqq \AbsComplement{A} \cup \AbsComplement{B}
+\end{align}
+\end{definition}
+
+\begin{definition}[Idempotent Laws]
+\begin{align}
+    A \cup A &\coloneqq A \\
+    A \cap A &\coloneqq A
+\end{align}
+\end{definition}
+
+\begin{definition}[Commutative Laws]
+\begin{align}
+    A \cup B &\coloneqq B \cup A \\
+    A \cap B &\coloneqq B \cap A
+\end{align}
+\end{definition}
+
+\begin{definition}[Associativity Laws]
+\begin{align}
+    A \cup (B \cup C) &\coloneqq (A \cup B) \cup C \\
+    A \cap (B \cap C) &\coloneqq (A \cap B) \cap C
+\end{align}
+\end{definition}
+
+\begin{definition}[Distributive Laws]
+\begin{align}
+    A \cap (B \cup C) &\coloneqq (A \cap B) \cup (B \cap C)\\
+    A \cup (B \cap C) &\coloneqq (A \cup B) \cap (B \cup C)
+\end{align}
+\end{definition}
+
+\begin{definition}[Identity Laws]
+\begin{align}
+    A \cup \emptyset &\coloneqq A \\
+    A \cap \emptyset &\coloneqq \emptyset \\
+    A \cap U &\coloneqq A \\
+    A \cup U &\coloneqq U
+\end{align}
+\end{definition}
+
+\begin{definition}[Absorption Laws]
+\begin{align}
+    A \cup (A \cap B) &\coloneqq A \\
+    A \cap (A \cup B) &\coloneqq A
+\end{align}
+\end{definition}
+
+\begin{definition}[Difference Identity Laws]
+\begin{align}
+    C \Diff (A \cup B) &\coloneqq (C \Diff A) \cap (C \Diff B) \\
+    C \Diff (A \cap B) &\coloneqq (C \Diff A) \cup (C \Diff B)
+\end{align}
+\end{definition}
+
+\begin{definition}[Complement-Difference Identity Law]
+\begin{equation}
+    C \Diff D \coloneqq C \cap \AbsComplement{D}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Double Complement Law]
+\begin{equation}
+    \AbsComplement{(\AbsComplement{D})} \coloneqq D
+\end{equation}
+\end{definition}
+
+\begin{definition}[Contraposition]
+\begin{align}
+    C \subseteq D &\Leftrightarrow \AbsComplement{D} \subseteq \AbsComplement{C} \\
+    C = D &\Leftrightarrow \AbsComplement{C} = \AbsComplement{D}
+\end{align}
+\end{definition}
+
+\begin{definition}[Arbitrary Union]\ \\
+    Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
+    \begin{equation}
+        A_1 \cup A_2 \cup \dots \cup A_n \coloneqq \bigcup_{i \in I} A_i
+    \end{equation}
+    Then
+    \begin{equation}
+        x \in \bigcup_{i \in I} A_i \Leftrightarrow \Exists i \in I \colon x \in A_i
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Arbitrary Intersection]\ \\
+    Given sets $A_1, A_2, \dots, A_n$ where $I = \set{1, 2, \dots, n}$
+    \begin{equation}
+        A_1 \cap A_2 \cap \dots \cap A_n \coloneqq \bigcap_{i \in I} A_i
+    \end{equation}
+    Then
+    \begin{equation}
+        x \in \bigcap_{i \in I} A_i \Leftrightarrow \Forall i \in I \colon x \in A_i
+    \end{equation}
+\end{definition}
