@@ -46,72 +46,72 @@ For example, $a, b, c$ are references to actual objects in
 \section{Boolean Algebra}
 \begin{definition}[De Morgan's Laws]
 \begin{align}
-    \neg (p \lor q ) &\coloneqq \neg p \land \neg q \\
-    \neg (p \land q) &\coloneqq \neg p \lor \neg q 
+    \neg (p \lor q ) &\equiv \neg p \land \neg q \\
+    \neg (p \land q) &\equiv \neg p \lor \neg q 
 \end{align}
 \end{definition}
 
 \begin{definition}[Idempotent Laws]
 \begin{align}
-    p \lor p &\coloneqq p \\
-    p \land p &\coloneqq p
+    p \lor p &\equiv p \\
+    p \land p &\equiv p
 \end{align}
 
 \end{definition}
 
 \begin{definition}[Commutative Laws]
 \begin{align}
-    p \lor q &\coloneqq q \lor p \\
-    p \land q &\coloneqq q \land p
+    p \lor q &\equiv q \lor p \\
+    p \land q &\equiv q \land p
 \end{align}
 \end{definition}
 
 \begin{definition}[Associative Laws]
 \begin{align}
-    p \lor (q \lor r) &\coloneqq (p \lor q) \lor r \\
-    p \land (q \land r) &\coloneqq (p \land q) \land r
+    p \lor (q \lor r) &\equiv (p \lor q) \lor r \\
+    p \land (q \land r) &\equiv (p \land q) \land r
 \end{align}
 \end{definition}
 
 \begin{definition}[Distributive Laws]
 \begin{align}
-    p \land (q \lor r) &\coloneqq (p \land q) \lor (p \land r) \\
-    p \lor (q \land r) &\coloneqq (p \lor q) \land (p \lor r)
+    p \land (q \lor r) &\equiv (p \land q) \lor (p \land r) \\
+    p \lor (q \land r) &\equiv (p \lor q) \land (p \lor r)
 \end{align}
 \end{definition}
 
 \begin{definition}[Identity Laws]
 \begin{align}
-    p \lor \False &\coloneqq p \\
-    p \lor \True &\coloneqq \True \\
-    p \land \True &\coloneqq p \\
-    p \land \False &\coloneqq \False
+    p \lor \False &\equiv p \\
+    p \lor \True &\equiv \True \\
+    p \land \True &\equiv p \\
+    p \land \False &\equiv \False
 \end{align}
 \end{definition}
 
 \begin{definition}[Absorption Laws]
 \begin{align}
-    p \lor (p \land q) &\coloneqq p \\
-    p \land (p \lor q) &\coloneqq p
+    p \lor (p \land q) &\equiv p \\
+    p \land (p \lor q) &\equiv p
 \end{align}
 \end{definition}
 
 \begin{definition}[Implication and Negation Laws]\ \\
 \begin{itemize}
-    \item \textit{Identity}: $p \to q \coloneqq \neg p \lor q$
-    \item \textit{Counter-example}: $\neg(p \to q) \coloneqq p \land \neg q$
-    \item \textit{Equivalences}: $p \to q \to r \coloneqq (p \land q) \to r \coloneqq q\ to (p \to r)$
+    \item \textit{Identity}: $p \to q \equiv \neg p \lor q$
+    \item \textit{Counter-example}: $\neg(p \to q) \equiv p \land \neg q$
+    \item \textit{Equivalences}: $p \to q \to r \equiv (p \land q) \to r \equiv q\ to (p \to r)$
     \item \textit{Absorption}:
-        \subitem $p \to \True \coloneqq T$
-        \subitem $p \to \False \coloneqq \neg p$
-        \subitem $\True \to p \coloneqq p$
-        \subitem $\False \to p \coloneqq T$
-    \item \textit{Contrapositive}: $p \to q \coloneqq \neg q \to \neg p$
+        \subitem $p \to \True \equiv T$
+        \subitem $p \to \False \equiv \neg p$
+        \subitem $\True \to p \equiv p$
+        \subitem $\False \to p \equiv T$
+    \item \textit{Contrapositive}: $p \to q \equiv \neg q \to \neg p$
     \item \textit{Law of Excluded Middle}: 
-        \subitem $p \lor \neg p \coloneqq \True$
-        \subitem $p \land \neg p \coloneqq \False$
-    \item \textit{Double Negation}: $\neg \neg p \coloneqq p$
-    \item \textit{Reduction to Absurdity}: $\neg p \to \False \coloneqq p$
+        \subitem $p \lor \neg p \equiv \True$
+        \subitem $p \land \neg p \equiv \False$
+    \item \textit{Double Negation}: $\neg \neg p \equiv p$
+    \item \textit{Reduction to Absurdity}: $\neg p \to \False \equiv p$
     % TODO
 \end{itemize}
 \end{definition}
@@ -119,71 +119,71 @@ For example, $a, b, c$ are references to actual objects in
 \section{Set Algebra}
 \begin{definition}[De Morgan's Laws]
 \begin{align}
-    \AbsComplement{(A \cup B)} &\coloneqq \AbsComplement{A} \cap \AbsComplement{B} \\
-    \AbsComplement{(A \cap B)} &\coloneqq \AbsComplement{A} \cup \AbsComplement{B}
+    \AbsComplement{(A \cup B)} &\equiv \AbsComplement{A} \cap \AbsComplement{B} \\
+    \AbsComplement{(A \cap B)} &\equiv \AbsComplement{A} \cup \AbsComplement{B}
 \end{align}
 \end{definition}
 
 \begin{definition}[Idempotent Laws]
 \begin{align}
-    A \cup A &\coloneqq A \\
-    A \cap A &\coloneqq A
+    A \cup A &\equiv A \\
+    A \cap A &\equiv A
 \end{align}
 \end{definition}
 
 \begin{definition}[Commutative Laws]
 \begin{align}
-    A \cup B &\coloneqq B \cup A \\
-    A \cap B &\coloneqq B \cap A
+    A \cup B &\equiv B \cup A \\
+    A \cap B &\equiv B \cap A
 \end{align}
 \end{definition}
 
 \begin{definition}[Associativity Laws]
 \begin{align}
-    A \cup (B \cup C) &\coloneqq (A \cup B) \cup C \\
-    A \cap (B \cap C) &\coloneqq (A \cap B) \cap C
+    A \cup (B \cup C) &\equiv (A \cup B) \cup C \\
+    A \cap (B \cap C) &\equiv (A \cap B) \cap C
 \end{align}
 \end{definition}
 
 \begin{definition}[Distributive Laws]
 \begin{align}
-    A \cap (B \cup C) &\coloneqq (A \cap B) \cup (B \cap C)\\
-    A \cup (B \cap C) &\coloneqq (A \cup B) \cap (B \cup C)
+    A \cap (B \cup C) &\equiv (A \cap B) \cup (B \cap C)\\
+    A \cup (B \cap C) &\equiv (A \cup B) \cap (B \cup C)
 \end{align}
 \end{definition}
 
 \begin{definition}[Identity Laws]
 \begin{align}
-    A \cup \emptyset &\coloneqq A \\
-    A \cap \emptyset &\coloneqq \emptyset \\
-    A \cap U &\coloneqq A \\
-    A \cup U &\coloneqq U
+    A \cup \emptyset &\equiv A \\
+    A \cap \emptyset &\equiv \emptyset \\
+    A \cap U &\equiv A \\
+    A \cup U &\equiv U
 \end{align}
 \end{definition}
 
 \begin{definition}[Absorption Laws]
 \begin{align}
-    A \cup (A \cap B) &\coloneqq A \\
-    A \cap (A \cup B) &\coloneqq A
+    A \cup (A \cap B) &\equiv A \\
+    A \cap (A \cup B) &\equiv A
 \end{align}
 \end{definition}
 
 \begin{definition}[Difference Identity Laws]
 \begin{align}
-    C \Diff (A \cup B) &\coloneqq (C \Diff A) \cap (C \Diff B) \\
-    C \Diff (A \cap B) &\coloneqq (C \Diff A) \cup (C \Diff B)
+    C \Diff (A \cup B) &\equiv (C \Diff A) \cap (C \Diff B) \\
+    C \Diff (A \cap B) &\equiv (C \Diff A) \cup (C \Diff B)
 \end{align}
 \end{definition}
 
 \begin{definition}[Complement-Difference Identity Law]
 \begin{equation}
-    C \Diff D \coloneqq C \cap \AbsComplement{D}
+    C \Diff D \equiv C \cap \AbsComplement{D}
 \end{equation}
 \end{definition}
 
 \begin{definition}[Double Complement Law]
 \begin{equation}
-    \AbsComplement{(\AbsComplement{D})} \coloneqq D
+    \AbsComplement{(\AbsComplement{D})} \equiv D
 \end{equation}
 \end{definition}
 
