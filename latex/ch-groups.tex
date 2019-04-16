@@ -5,26 +5,63 @@
 A \textit{group} is an abstract collection consisting of:
 \begin{itemize}
     \item A \textit{nonempty set} $G$.
-    \item A \textit{binary operation} $\ast \colon G \times G \to G$.
+    \item A \textit{binary operation} $\star \colon G \times G \to G$.
 \end{itemize}
 
-It is defined to satisfy the following properties:
+It has the following properties:
 \begin{enumerate}
     \item \textbf{Closure}
     \begin{equation}
-        \Forall x, y \colon x \in G \land y \in G \to x \ast y \in G
+        \Forall x, y \colon x \in G \land y \in G \to x \star y \in G
     \end{equation}
     \item \textbf{Associativity}
     \begin{equation}
-        \Forall x, y, z \in G \colon (x \ast y) \ast z \equiv x \ast (y \ast z)
+        \Forall x, y, z \in G \colon (x \star y) \star z \equiv x \star (y \star z)
     \end{equation}
     \item \textbf{Neutral Element}
     \begin{equation}
-        \Exists \epsilon \in G \colon \Forall x \in G \colon x \ast \epsilon \equiv \epsilon \ast x \equiv x
+        \Exists \epsilon \in G \colon \Forall x \in G \colon x \star \epsilon \equiv \epsilon \star x \equiv x
     \end{equation}
+    That there exists an unique \textit{neutral} element $\epsilon \in G$.
     \item \textbf{Invertibility}
     \begin{equation}
-        \Forall x \in G \colon \Exists y \in G \colon x \ast y \equiv y \ast x \equiv \epsilon
+        \Forall x \in G \colon \Exists y \in G \colon x \star y \equiv y \star x \equiv \epsilon
     \end{equation}
-    This $y$ which is the \textit{inverse} element of $x$ would be denoted as $\Inverse{x}$.
+    That there exists an unique \textit{inverse} element $y \coloneqq \Inverse{x} \in G$ where $\Inverse{x}$ denotes the \textit{inverse} element of $x$.
 \end{enumerate}
+
+\begin{definition}[Commutative Group]
+    An \textit{commutative group} (or \textit{abelian group}) is a \textit{group} for which its operation $\star \colon G \times G \to G$ satisfies the additional \textit{commutative} property:
+    \begin{itemize}
+        \item \textbf{Commutativity}
+        \begin{equation}
+            \Forall x, y \in G \colon x \star y \equiv y \star x
+        \end{equation}
+    \end{itemize}
+\end{definition}
+
+\section{Multiplicative Group}
+
+\begin{proposition}[Multiplicative Group]
+    A \textit{multiplicative group} is a \textit{group} $(G, \ast)$ which satisfies the required \textit{group} properties:
+    \begin{itemize}
+        \item \textbf{Closure, Associativity}. The multiplication operation $\ast \colon G \times G \to G$ is closed and is left associative.
+        \item \textbf{Neutral Element}. The neutral element $\epsilon$ is unique.
+        \item \textbf{Invertibility}. The inverse element $\Inverse{x}$ is unique.
+        \item For all $a, b \in G$ the equation
+        \begin{equation}
+            a \ast x = b
+        \end{equation}
+        Has the unique solution
+        \begin{equation}
+            x = \Inverse{a} \ast b
+        \end{equation}
+    \end{itemize}
+    Since
+    \begin{align}
+        a \ast x = b &\Leftrightarrow \Inverse{a} \ast (a \ast x) = \Inverse{a} \ast b &\text{(Multiply by $\Inverse{a}$ on both sides)} \\
+        &\Leftrightarrow (\Inverse{a} \ast a) \ast x = \Inverse{a} \ast b &\text{(Associativity)} \\
+        &\Leftrightarrow \epsilon \ast x = \Inverse{a} \ast b &\text{(Invertibility)} \\
+        &\Leftrightarrow x = \Inverse{a} \ast b &\text{(Neutral Element)}
+    \end{align}
+\end{proposition}
