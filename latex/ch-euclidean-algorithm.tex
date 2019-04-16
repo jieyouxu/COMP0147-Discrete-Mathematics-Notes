@@ -1,0 +1,34 @@
+\chapter{Euclidean Algorithm}
+
+\section{Euclidean Algorithm Basics}
+
+\begin{definition}[Euclidean Algorithm]
+    The \textit{Euclidean Algorithm} can be used to compute the \textit{greatest common divisor} of two integers $a, b \in \Int$, denoted $\gcd(a, b)$.
+    
+    Its process, given $a >= b$ is
+    \begin{align}
+        a           &= q_0 \cdot b + r_1 \\
+        b           &= q_1 \cdot r_1 + r_2 \\
+        r_1         &= q_2 \cdot r_2 + r_3 \\
+                    &\vdots \nonumber \\
+        r_{k - 1}   &= q_k \cdot r_k + r_{k + 1} \\
+        r_k         &= q_{k + 1} \cdot r_{k + 1} + r_{k + 2} \\
+                    &\vdots \nonumber \\
+        r_{n - 1}   &= q_n \cdot r_n + r_{n + 1} \\
+        r_n         &= q_{n + 1} \cdot r_{n + 1} + 0
+    \end{align}
+    Such that $\gcd(a, b) \coloneqq r_{n + 1}$.
+\end{definition}
+
+\section{gcd(a, b) as a Linear Combination of a and b}
+
+\begin{proposition}
+    For some integers $k_1$ and $k_2$, and some $d \in \Int$,
+    \begin{equation}
+        d = \gcd(a, b) = k_1 a + k_2 b
+    \end{equation}
+\end{proposition}
+
+\begin{remark}
+    For example, to find $\Inverse{4} \pmod{17}$, that is to find $y$ such that $4 \ast y = 1 \pmod{17}$.
+\end{remark}
