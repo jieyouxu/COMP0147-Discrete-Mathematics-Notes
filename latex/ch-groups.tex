@@ -397,3 +397,36 @@ It has the following properties:
         \Leftrightarrow &\Forall i, j \in I \colon (h_1 \ne h_j) \leftrightarrow  (g \ast h_i \ne g \ast h_j)
     \end{align}
 \end{proof}
+
+\begin{remark}
+    Let $A_n$ be the set of all \textit{even permutations} and $B_n$ be the set of all \textit{odd permutations}.
+    
+    Given the \textit{group} $(S_n, \ast)$, then $(A_n, \ast)$ is a \textit{subgroup} of $S_n$.
+    
+    With the multiplication table
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{c | c}
+    \toprule
+    $\ast$              & $A_n$ \\ 
+    \midrule
+    $\epsilon \ast A_n$ & $A_n$ \\
+    $\epsilon \ast A_n$ & $B_n$ \\ 
+    \bottomrule
+    \end{tabular}
+    \caption{Multiplication Table for Group $(S_n, \ast)$}
+    \end{table}
+    
+    Since
+    \begin{equation}
+        \sigma \ast A_n \equiv \begin{cases}
+            A_n &\text{if $\sigma$ is odd} \\
+            B_n &\text{if $\sigma$ is even}
+        \end{cases}
+    \end{equation}
+    
+    Hence,
+    \begin{equation}
+        \lvert A_n \rvert \equiv \frac{1}{2} \cdot \lvert S_n \rvert \equiv \frac{1}{2} \cdot n!
+    \end{equation}
+\end{remark}
