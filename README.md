@@ -1,52 +1,37 @@
 # COMP0147 Discrete Mathematics for Computer Scientists Notes
 Notes for UCL COMP0147 Discrete Mathematics Course.
 
-Core Topics:
-- Set theory
-- Equivalence Relations
-- Functions
-- Symmetry Groups
-- Counting Arguments
-- Modular Arithmetic
+## Core Topics
+- Foundations
+    + Sets
+    + Binary Relations
+        + Equivalence Relations
+    + Modular Arithmetics
+    + Functions
+        + Injections
+        + Surjections
+        + Bijections
+    + Cardinality of Sets
+    + Groups
+        + Symmetric Group
+        + Permutations
+            + Sign of Permutations
+            + Order of Permutations
+        + Abstract Groups
+        + Lagrange's Theorem
+    + Euclid's Algorithm
+        * Solving Linear Congruences
+        * Fermat's Little Theorem
+        * Euler Totient Function
+        * Application of Public Key Cryptography
 - Linear Algebra
-
-## Content
-- Foundations:
-  - Set Theory and Functions
-    - Binary relations
-      - Equivalence Relations
-    - Modular Arithmetic
-    - Functions
-      - Injections
-      - Surjections
-      - Bijections
-      - Inverses
-      - Cardinality of sets
-  - Group Theory
-    - Symmetry group
-    - Disjoint cycle notation
-    - Sign of a permutation
-    - Abstract groups
-    - Lagrange's theorem
-  - Prime Numbers and Cryptography
-    - Euclid's algorithm
-    - Solving linear congruences
-    - Fermat's little theorem
-    - Euler totient function
-    - Application to public key cryptography
-- Linear Algebra
-  - Linear maps and matrices
-  - Associativity and non-commutativity of matrix manipulation
-  - Gaussian elimination
-  - LU decomposition
-  - Inverting matrices
-  - Determinants
-  - Eigenvalues and eigenvectors
-  - Symmetric matrices
-  - Diagonalizing matrices
-    - Calculating polynomials in diagonalizing matrices
-  - Singular value decomposition
+    + Correspondence between Linear Maps and Matrices
+    + Associativity and Non-commutativity of Matrix Manipulation
+    + Gaussian Elimination
+    + Inverting Matrices
+    + Determinants
+    + Eigenvalues and Eigenvectors
 - Counting
-  - Combinatorics
-  - Permutations
-  - Binomial theorem
+    + Counting Fundamental Principles
+    + Multiplication Principle
+    + Inclusion-exclusion Principle
