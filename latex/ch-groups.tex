@@ -246,6 +246,154 @@ It has the following properties:
     $g_\ell H$ & $g_\ell \ast h_1$ & $g_\ell \ast h_2$ & $\cdots$ & $g_\ell \ast h_k$ \\ 
     \bottomrule
     \end{tabular}
-    \caption{Multiplication Table from $\ell$ Left Cosets, Each of Size $\lvert g_i H \rvert = k$}
+    \caption{Multiplication Table from $\ell$ Left Cosets, Each of Size $\lvert H \rvert = k$}
     \end{table}
 \end{remark}
+
+\begin{proposition}\label{prop:inverse-element-identity}
+    For any $a, b \in G$ from $(G, \ast)$
+    \begin{equation}
+        \Inverse{(a \ast b)} \equiv \Inverse{b} \ast \Inverse{a}
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    \begin{align}
+        \Inverse{(a \ast b)} &\Leftrightarrow \Inverse{(a \ast b)} \ast \epsilon &\text{(Neutral element)} \\
+        &\Leftrightarrow \Inverse{(a \ast b)} \ast (a \ast \Inverse{a}) &\text{(Invertibility)} \\
+        &\Leftrightarrow \Inverse{(a \ast b)} \ast \left((a \ast \epsilon) \ast \Inverse{a}\right) &\text{(Neutral element)} \\
+        &\Leftrightarrow \Inverse{(a \ast b)} \ast \left[(a \ast (b \ast \Inverse{b})) \ast \Inverse{a}\right] &\text{(Invertibility)} \\
+        &\Leftrightarrow \Inverse{(a \ast b)} \ast \left[(a \ast b) \ast (\Inverse{b} \ast \Inverse{a})\right] &\text{(Associativity)} \\
+        &\Leftrightarrow \left[ \Inverse{(a \ast b)} \ast (a \ast b) \right] \ast (\Inverse{b} \ast \Inverse{a}) &\text{(Associativity)} \\
+        &\Leftrightarrow \epsilon \ast (\Inverse{b} \ast \Inverse{a}) &\text{(Invertibility)} \\
+        &\Leftrightarrow \Inverse{b} \ast \Inverse{a} &\text{(Neutral Element)}
+    \end{align}
+\end{proof}
+
+\begin{proof}
+    For a constructive proof of Lagrange's Theorem: 
+    
+    Let the binary relation $E(x, y)$ be defined on the \textit{group} $(G, \ast)$, with its \textit{subgroup} $(H, \ast)$
+    \begin{equation}
+        E(x, y) \coloneqq \Inverse{x} \ast y \in H
+    \end{equation}
+    For the equivalence
+    \begin{equation}
+        x = y \Leftrightarrow \Inverse{x} \ast y = 1
+    \end{equation}
+    Then for each of the required properties:
+    \begin{itemize}
+        \item \textbf{Neutral Element} from \textit{Reflexivity} of $E(x, y)$
+        \begin{equation}
+            \Forall x \in G \colon E(x, x)
+        \end{equation}
+        Since
+        \begin{equation}
+            E(x, x) \equiv \Inverse{x} \ast x \in H \equiv \epsilon \in H
+        \end{equation}
+        Then this satisfies the \textit{reflexivity} requirement for  \textit{equivalence relations}, and proves the \textit{neutral element} requirement for \textit{subgroups}.
+        \item \textbf{Invertibility} from \textit{Symmetry} of $E(x, y)$
+        \begin{equation}
+            \Forall x, y \in G \colon E(x, y) \to E(y, x)
+        \end{equation}
+        Let for some $h \in H$, $\Inverse{x} \ast y = h$, then by proposition \ref{prop:inverse-element-identity}
+        \begin{equation}
+            \Inverse{y} \ast x \equiv \Inverse{(\Inverse{x} \ast y)} \equiv \Inverse{h} \in H
+        \end{equation}
+        Which satisfies the \textit{symmetry} requirement for \textit{equivalence relations}, and proves the \textit{invertibility} requirement for \textit{subgroups}.
+        \item \textbf{Closure} from \textit{Transitivity} of $E(x, y)$
+        \begin{equation}
+            \Forall x, y, z \in G \colon E(x, y) \land E(y, z) \to E(x, z)
+        \end{equation}
+        Let for some $h_1, h_2 \in H$, $\left( \Inverse{x} \ast y = h_1 \right) \land \left( \Inverse{y} \ast z = h_2 \right)$, then
+        \begin{align}
+            \Inverse{x} \ast z &\Leftrightarrow \Inverse{x} \ast \epsilon \ast z \\
+            &\Leftrightarrow (\Inverse{x} \ast y) \ast (\Inverse{y} \ast z) \\
+            &\Leftrightarrow h_1 \ast h_2 \in H
+        \end{align}
+        Which satisfies the \textit{transitivity} requirement for \textit{equivalence relations}, and proves the \textit{closure} requirement for \textit{subgroups}.
+    \end{itemize}
+    
+\end{proof}
+
+\begin{remark}
+    To demonstrate Lagrange's Theorem, let the \textit{group} be constructed from $x \ast y \pmod{10}$.
+    
+    Let $(G, \ast)$ be a finite \textit{group} of order $n = 4$ where
+    \begin{equation}
+        G = \set{1, 3, 7, 9}
+    \end{equation}
+    And $(H, \ast)$ be its \textit{subgroup} of order $k = 2$.
+    
+    Constructing the multiplication table yields
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c}
+    \toprule
+    $\ast \pmod{10}$ & $1$ & $9$ \\
+     \midrule
+    $1 \ast H$       & $1$ & $9$ \\
+    $3 \ast H$       & $3$ & $7$ \\
+    $7 \ast H$       & $7$ & $3$ \\
+    $9 \ast H$       & $9$ & $1$ \\ 
+    \bottomrule
+    \end{tabular}
+    \caption{Multiplication Table for $(G, \ast)$}
+    \end{table}
+    
+    There are only $\ell = 2$ disjoint subsets (unique cosets) $gH$; $G$ can be partitioned into $\ell$ disjoint subsets, each of size $\lvert H \rvert = 2$ such that $4 = n = k\ell = 2 \cdot 2$.
+    
+    Visually,
+    \begin{equation}
+        G = \left. \begin{matrix}
+            &\boxed{1 \ast H = 9 \ast H = \set{1, 9}} \\
+            &\boxed{3 \ast H = 7 \ast H = \set{3, 7}}
+        \end{matrix} \quad \right\} \ell = 2
+    \end{equation}
+\end{remark}
+
+\subsection{Equivalence Classes}
+
+\begin{definition}[Equivalence Class]
+    Given \textit{group} $(G, \ast)$ and its \textit{subgroup} $(H, \ast)$, then the \textit{equivalence class} $[g]$ is defined as
+    \begin{equation}
+        [g] \coloneqq \set{y \in G \mid \Inverse{g} \ast y \in H}
+    \end{equation}
+    Then
+    \begin{equation}
+        \Forall h \in H \colon \Inverse{g} \ast y = h \Leftrightarrow y = g \ast h
+    \end{equation}
+    Which yields the equivalence
+    \begin{equation}
+        \set{y \in G \mid \Inverse{g} \ast y \in H} \equiv \set{y \in G \mid y \in gH}
+    \end{equation}
+    Hence
+    \begin{equation}
+        [g] \equiv gH
+    \end{equation}
+    That the \textit{equivalence class} $[g]$ is exactly the \textit{left coset} $gH$.
+    
+    Let $\ell$ be the number of disjoint equivalence class $[g]$, then $G$ can be partitioned into $\ell$ disjoint subsets where visually,
+    \begin{equation}
+        G = \left. \begin{matrix}
+            &\boxed{ [g_1] \equiv g_1 H } \\
+            &\boxed{ [g_2] \equiv g_1 H } \\
+            &\vdots \\
+            &\boxed{ [g_\ell] \equiv g_\ell H } \\
+        \end{matrix} \quad \right\} \ell \text{ disjoint subsets}
+    \end{equation}
+\end{definition}
+
+\begin{proposition}
+    \begin{equation}
+        \Forall g \in G \colon \lvert gH \rvert \equiv \lvert H \rvert \equiv k
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    Let $I$ be the set of indices $I \coloneqq \set{1, \dots, k}$
+    \begin{align}
+        &\Forall i, j \in I \colon (h_i = h_j) \leftrightarrow (g \ast h_i = g \ast h_j) \\
+        \Leftrightarrow &\Forall i, j \in I \colon (h_1 \ne h_j) \leftrightarrow  (g \ast h_i \ne g \ast h_j)
+    \end{align}
+\end{proof}
