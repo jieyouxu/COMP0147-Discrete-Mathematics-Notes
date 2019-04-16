@@ -1,3 +1,30 @@
 \chapter{Groups}
 
-% TODO
+\section{Group Basics}
+
+A \textit{group} is an abstract collection consisting of:
+\begin{itemize}
+    \item A \textit{nonempty set} $G$.
+    \item A \textit{binary operation} $\ast \colon G \times G \to G$.
+\end{itemize}
+
+It is defined to satisfy the following properties:
+\begin{enumerate}
+    \item \textbf{Closure}
+    \begin{equation}
+        \Forall x, y \colon x \in G \land y \in G \to x \ast y \in G
+    \end{equation}
+    \item \textbf{Associativity}
+    \begin{equation}
+        \Forall x, y, z \in G \colon (x \ast y) \ast z \equiv x \ast (y \ast z)
+    \end{equation}
+    \item \textbf{Neutral Element}
+    \begin{equation}
+        \Exists \epsilon \in G \colon \Forall x \in G \colon x \ast \epsilon \equiv \epsilon \ast x \equiv x
+    \end{equation}
+    \item \textbf{Invertibility}
+    \begin{equation}
+        \Forall x \in G \colon \Exists y \in G \colon x \ast y \equiv y \ast x \equiv \epsilon
+    \end{equation}
+    This $y$ which is the \textit{inverse} element of $x$ would be denoted as $\Inverse{x}$.
+\end{enumerate}
