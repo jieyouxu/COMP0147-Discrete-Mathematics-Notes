@@ -43,7 +43,7 @@ It has the following properties:
 \section{Multiplicative Group}
 
 \begin{proposition}[Multiplicative Group]
-    A \textit{multiplicative group} is a \textit{group} $(G, \ast)$ which satisfies the required \textit{group} properties:
+    A \textit{multiplicative group} is a \textit{group} $(G, \ast)$ which has the binary operation $\ast \colon G \times G \to G$:
     \begin{itemize}
         \item \textbf{Closure, Associativity}. The multiplication operation $\ast \colon G \times G \to G$ is closed and is left associative.
         \item \textbf{Neutral Element}. The neutral element $\epsilon$ is unique.
@@ -59,9 +59,74 @@ It has the following properties:
     \end{itemize}
     Since
     \begin{align}
-        a \ast x = b &\Leftrightarrow \Inverse{a} \ast (a \ast x) = \Inverse{a} \ast b &\text{(Multiply by $\Inverse{a}$ on both sides)} \\
+        a \ast x = b &\Leftrightarrow \Inverse{a} \ast (a \ast x) = \Inverse{a} \ast b &\text{(Multiply by inverse element)} \\
         &\Leftrightarrow (\Inverse{a} \ast a) \ast x = \Inverse{a} \ast b &\text{(Associativity)} \\
         &\Leftrightarrow \epsilon \ast x = \Inverse{a} \ast b &\text{(Invertibility)} \\
         &\Leftrightarrow x = \Inverse{a} \ast b &\text{(Neutral Element)}
     \end{align}
 \end{proposition}
+
+\begin{remark}
+    An example of a multiplicative group is permutations under composition, namely $S_n$ is a group $(G, \circ)$ where $\circ \colon G \times G \to G$.
+    
+    For example, let $G$ be the set of permutations
+    \begin{equation}
+    \epsilon = \begin{pmatrix}
+        1 & 2 & 3 \\
+        1 & 2 & 3
+    \end{pmatrix} \quad
+    \sigma_1 = \begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 3 & 1
+    \end{pmatrix} \quad
+    \sigma_2 = \sigma_1^2 = \begin{pmatrix}
+        1 & 2 & 3 \\
+        3 & 1 & 2
+    \end{pmatrix} \quad
+    \end{equation}
+    
+    To verify that $G$ does form a group with composition $\circ$, one may draw the multiplication table for the group. Note that
+    \begin{equation}
+        \sigma_2 \sigma_2 = \sigma_1^4 = \sigma_1^3 \sigma_1 = \epsilon \sigma_1 = \sigma_1
+    \end{equation}
+    
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l | l l l}
+    \toprule
+    $\circ$    & $\epsilon$ & $\sigma_1$ & $\sigma_2$ \\
+    \midrule
+    $\epsilon$ & $\epsilon$ & $\sigma_1$ & $\sigma_2$ \\
+    $\sigma_1$ & $\sigma_1$ & $\sigma_2$ & $\epsilon$ \\
+    $\sigma_2$ & $\sigma_2$ & $\epsilon$ & $\sigma_1$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Multiplication Table of Composition $\circ$ over $G$}
+    \end{table}
+\end{remark}
+
+\section{Additive Group}
+
+\begin{definition}[Additive Group]
+    An \textit{additive group} is a \textit{group} $(G, +)$ with the binary operation $+ \colon G \times G \to G$. It has the same properties of a general \textit{group}.
+    \begin{enumerate}
+        \item \textbf{Closure}
+        \begin{equation}
+            \Forall x, y \colon x \in G \land y \in G \to x + y \in G
+        \end{equation}
+        \item \textbf{Associativity}
+        \begin{equation}
+            \Forall x, y, z \in G \colon (x + y) + z \equiv x + (y + z)
+        \end{equation}
+        \item \textbf{Neutral Element}
+        \begin{equation}
+            \Exists \epsilon \in G \colon \Forall x \in G \colon x + \epsilon \equiv \epsilon + x \equiv x
+        \end{equation}
+        That there exists an unique \textit{neutral} element $0_G \in G$ (usually denoted simply as $0$).
+        \item \textbf{Invertibility}
+        \begin{equation}
+            \Forall x \in G \colon \Exists y \in G \colon x + y \equiv y + x \equiv 0
+        \end{equation}
+        That there exists an unique \textit{inverse} element $y \coloneqq -x \in G$ where $-x$ denotes the \textit{inverse} element of $x$.
+    \end{enumerate}
+\end{definition}
