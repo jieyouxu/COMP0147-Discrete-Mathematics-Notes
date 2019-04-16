@@ -130,3 +130,122 @@ It has the following properties:
         That there exists an unique \textit{inverse} element $y \coloneqq -x \in G$ where $-x$ denotes the \textit{inverse} element of $x$.
     \end{enumerate}
 \end{definition}
+
+\begin{remark}
+    An example of an additive group is $(\Int, +)$ (i.e. addition over the integers).
+    
+    Then for any of such \textit{commutative group} $(G, +)$
+    \begin{itemize}
+        \item \textit{Neutral element} $0$ is unique.
+        \item \textit{Inverse element} $-x$ is unique.
+        \item For any $a, b \in G$ the equation
+        \begin{equation}
+            a + x = b
+        \end{equation}
+        Has a unique solution
+        \begin{equation}
+            x = b + (-a) = b - a
+        \end{equation}
+    \end{itemize}
+\end{remark}
+
+\section{Associativity of Sequential Composition of Functions}
+
+\begin{definition}[Sequential Composition of Functions]
+    Let $f \ast g$ denote the sequential composition of functions $f \ast X \to Y$ and $g \colon Y \to Z$ such that $f \ast g \colon X \to Z$ where $f$ is applied first then $g$, i.e. $\Forall x \in X \colon (f \ast g)(x) \coloneqq g(f(x))$.
+\end{definition}
+
+\begin{proposition}[Associativity of Sequential Composition of Functions]
+    Given sets $X, Y$ and $Z$ and
+    \begin{itemize}
+        \item \textit{Injection} $f \colon A \to B$
+        \item \textit{Injection} $g \colon B \to C$
+        \item \textit{Injection} $h \colon C \to D$
+    \end{itemize}
+    
+    Then their composition is associative:
+    \begin{equation}
+        (f \ast g) \ast h \equiv f \ast (g \ast h)
+    \end{equation}
+\end{proposition}
+
+\begin{proof}\ \\
+    Let $s = (f \ast g)$ and $t = (s \ast h)$, then $t(x) = h(s(x)) = h(g(f(x)))$.\\
+    Let $u = (g \ast h)$ and $v = (f \ast u)$, then $v(x) = u(f(x)) = h(g(f(x)))$.\\ 
+    Together they yield the desired equality $t(x) = v(x)$.
+\end{proof}
+
+\section{Subgroups}
+
+\begin{definition}[Subgroup]
+    Given a \textit{group} $(G, \ast)$, then the subset $H \subseteq G$ is a \textit{subgroup} of $G$ if it fulfills the properties:
+    \begin{enumerate}
+        \item \textbf{Closure}
+        \begin{equation}
+            \Forall x, y \colon x \in H \land y \in H \to x \ast y \in H
+        \end{equation}
+        \item \textbf{Neutral Element}
+        \begin{equation}
+            \epsilon \in H
+        \end{equation}
+        That is, the \textit{neutral} element $\epsilon$ from $G$ is contained within the subset $H \subseteq G$.
+        \item \textbf{Invertibility}
+        \begin{equation}
+            \Forall x \in H \colon \Inverse{x} \in H
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
+\section{Lagrange's Theorem}
+
+\begin{theorem}[Lagrange's Theorem]
+    Given a finite \textit{group} of order $n$ $(G, \ast)$ where
+    \begin{equation}
+        G \coloneqq \set{ g_1, g_2, \dots, g_n }
+    \end{equation}
+    And its \textit{subgroup} $(H, \ast)$ of order $k \le n$
+    \begin{equation}
+        H \coloneqq \set{ h1_, h_2, \dots, h_k }
+    \end{equation}
+    Then $k \vert n$ ($k$ divides $n$).
+    
+    $G$ can be \textit{partitioned} into $\ell$ disjoint subsets of the same size $k$ such that
+    \begin{equation}
+        n = k \ell
+    \end{equation}
+\end{theorem}
+
+\begin{definition}[Left Coset]
+    Given $(G, \ast)$ is a \textit{group}, $(H, \ast)$ is a \textit{subgroup} of $(G, \ast)$ and $g \in G$ then the \textit{left coset} $gH$ of $H$ in $G$ with respect to $g$ is defined as
+    \begin{equation}
+        gH \coloneqq \set{g \ast h \colon h \in H}
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    Visually,
+    \begin{equation}
+        G \equiv \left. \begin{matrix}
+            &\boxed{{g_1} H} \\
+            &\boxed{{g_2} H} \\
+            &\vdots \\
+            &\boxed{{g_\ell} H}
+        \end{matrix} \quad \right\} \ell \text{ disjoint subsets}
+    \end{equation}
+    
+    To verify that the \textit{left cosets} together do in fact reconstruct $G$, check the multiplication table
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{c | c c c c}
+    \toprule
+    $\ast$     & $h_1$             & $h_2$             & $\cdots$ & $h_k$ \\ 
+    \midrule
+    $g_1 H$    & $g_1 \ast h_1$    & $g_1 \ast h_2$    & $\cdots$ & $g_1 \ast h_k$ \\
+    $g_2 H$    & $g_2 \ast h_1$    & $g_2 \ast h_2$    & $\cdots$ & $g_2 \ast h_k$ \\
+    $\vdots$   & $\vdots$          & $\vdots$          & $\ddots$ & $\vdots$ \\
+    $g_\ell H$ & $g_\ell \ast h_1$ & $g_\ell \ast h_2$ & $\cdots$ & $g_\ell \ast h_k$ \\ 
+    \bottomrule
+    \end{tabular}
+    \caption{Multiplication Table from $\ell$ Left Cosets, Each of Size $\lvert g_i H \rvert = k$}
+    \end{table}
+\end{remark}
