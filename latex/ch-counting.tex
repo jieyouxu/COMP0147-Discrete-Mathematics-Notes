@@ -1,0 +1,64 @@
+\chapter{Counting}
+
+\section{Counting Basics}
+
+\subsection{[Multiplication Principle]}
+
+\begin{definition}[Multiplication Principle]
+    The \textit{multiplication principle} is used to count number of \textit{tuples} $(t_1, t_2, t_3, \dots)$ where $t_i$ are selected from \textit{independent} sources.
+    
+    For any sets $A_1, A_2, \dots, A_n$, their Cartesian product
+    \begin{equation}
+        \lvert A_1 \times A_2 \times \cdots \times A_n \rvert \equiv \VSBars{A_1} \cdot \VSBars{A_2} \cdot \cdots \cdot \VSBars{A_n}
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    For the set $E_2 = \set{0, 1}$,
+    \begin{equation}
+        \VSBars{{E_2}^3} = \VSBars{E_2 \times E_2 \times E_2} = 2^3 = 8
+    \end{equation}
+\end{remark}
+
+\begin{remark}
+    The number of boolean $n$-tuples is $2^n$
+    \begin{equation}
+        \VSBars{E_2^n} = \VSBars{ \underbrace{E_2 \times E_2 \times \cdots \times E_2}_{n} } = 2^n
+    \end{equation}
+\end{remark}
+
+\begin{proof}
+    For the Cartesian product $A \times B$ between any sets $A$ and $B$,
+    \begin{equation}
+        \VSBars{A \times B} \equiv \VSBars{A} \cdot \VSBars{B}
+    \end{equation}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{@{}c | cccc@{}}
+    \toprule
+             & $a_1$        & $a_2$        & $\cdots$ & $a_n$        \\ 
+    \midrule
+    $b_1$    & $(a_1, b_1)$ & $(a_2, b_1)$ & $\cdots$ & $(a_n, b_1)$ \\
+    $b_2$    & $(a_1, b_2)$ & $(a_2, b_2)$ & $\cdots$ & $(a_n, b_2)$ \\
+    $\vdots$ & $\vdots$     & $\vdots$     & $\ddots$ & $\vdots$     \\
+    $b_k$    & $(a_1, b_k)$ & $(a_2, b_k)$ & $\cdots$ & $(a_n, b_k)$ \\ 
+    \bottomrule
+    \end{tabular}
+    \end{table}
+\end{proof}
+
+\subsection{Addition Principle}
+
+\begin{definition}[Addition Principle (Inclusion-Exclusion Principle)]
+    For any sets $A$ and $B$,
+    \begin{equation}
+        \VSBars{A \cup B} \equiv \VSBars{A} + \VSBars{B} - \VSBars{A \cap B}
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    This is used in probability where for any events $A$ and $B$
+    \begin{equation}
+        \Prob{A \lor B} \equiv \Prob{A} + \Prob{B} - \Prob{A \land B}
+    \end{equation}
+\end{remark}
