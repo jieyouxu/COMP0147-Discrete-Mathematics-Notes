@@ -464,3 +464,349 @@
         B\prime = A\prime \Inverse{A} = I \Inverse{A} = \Inverse{A}
     \end{equation}
 \end{definition}
+
+\section{Linear Maps}
+
+\begin{definition}[$\Real^{n}$]
+    \begin{equation}
+        \Real^{n} \coloneqq \overbrace{\Real \times \Real \times \cdots \times \Real}^{n}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[$\Real^{m, n}$]
+    Is the domain of a matrix with $m$ rows and $n$ columns.
+\end{definition}
+
+\begin{lemma}[Linear Mapping and Matrices]
+    Any matrix defines a linear mapping.
+    
+    Given a matrix $A \in \Real^{m, n}$, then $A$ defines a \textit{linear mapping} $f \colon \Real^{n} \to \Real^{m}$ if entries of $\Real^{n}$ are treated as \textit{column vectors} then for $V \in \Real^{n, 1}$
+    \begin{equation}
+        f(V) = A V
+    \end{equation}
+\end{lemma}
+
+\begin{remark}
+    For example, for the $\Real^{2, 3}$ matrix $A$ where
+    \begin{equation}
+        A = \begin{bmatrix}
+            1 & 2 & 3 \\
+            4 & 5 & 6
+        \end{bmatrix} \in \Real^{2, 3}
+    \end{equation}
+    
+    $A$ defines a \textit{linear mapping} $f$ such that
+    \begin{equation}
+        f \colon \Real^{3} \to \Real^{2}
+    \end{equation}
+    
+    Since column vectors are used, then an $m \times n$ matrix defines a mapping from $\Real^{n} \to \Real^{m}$ with $m, n$ reversed.
+    
+    Then the mapping $f$ is defined as
+    \begin{equation}
+        f \begin{pmatrix}
+            1 \\
+            0 \\
+            0 \\
+        \end{pmatrix} = \begin{pmatrix}
+            1 \\
+            4
+        \end{pmatrix} 
+        \quad
+        f \begin{pmatrix}
+            0 \\
+            1 \\
+            0 \\
+        \end{pmatrix} = \begin{pmatrix}
+            2 \\
+            5
+        \end{pmatrix} 
+        \quad
+        f \begin{pmatrix}
+            0 \\
+            0 \\
+            1 \\
+        \end{pmatrix} = \begin{pmatrix}
+            3 \\
+            6
+        \end{pmatrix} 
+    \end{equation}
+    
+    Then the $i$th column of $A$ represents the image of the $i$th element of $\Real^{n, 1}$
+\end{remark}
+
+\begin{remark}
+    Let there be an system of linear equations
+    \begin{equation}
+        \left\{
+        \begin{array}{c}
+            x\prime_1 = a_{1, 1} x_1 + a_{1, 2} x_2 + \cdots + a_{1, n} x_n \\
+            x\prime_2 = a_{2, 1} x_1 + a_{2, 2} x_2 + \cdots + a_{2, n} x_n \\
+            \vdots \\
+            x\prime_n = a_{n, 1} x_1 + a_{n, 2} x_2 + \cdots + a_{n, n} x_n \\
+        \end{array}
+        \right.
+    \end{equation}
+    
+    With
+    \begin{equation}
+        A = \begin{bmatrix}
+            a_{1, 1} & a_{1, 2} & \cdots & a_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \cdots & a_{2, n} \\
+            \vdots   & \vdots   & \ddots & \vdots   \\
+            a_{n, 1} & a_{n, 2} & \cdots & a_{n, n} \\
+        \end{bmatrix}
+        \quad
+        X = \begin{bmatrix}
+            x_1    \\
+            x_2    \\
+            \vdots \\
+            x_n    \\
+        \end{bmatrix}
+        \quad
+        X\prime = \begin{bmatrix}
+            x\prime_1 \\
+            x\prime_2 \\
+            \vdots    \\
+            x\prime_n \\
+        \end{bmatrix}
+    \end{equation}
+    
+    Then there is a linear map
+    \begin{equation}
+        X\prime = A X
+    \end{equation}
+\end{remark}
+
+\section{Eigenvalues and Eigenvectors}
+
+\begin{definition}[Eigenvalue and Eigenvector]\ \\
+    \begin{enumerate}
+        \item A real number $\lambda \in \Real$ is an \textit{eigenvalue} of $A$
+        \item A non-zero vector $\overrightarrow{\upsilon}$ is an \textit{eigenvector}
+    \end{enumerate}
+    If
+    \begin{equation}
+        A \overrightarrow{\upsilon} = \lambda \overrightarrow{\upsilon}, \overrightarrow{\upsilon} \ne \overrightarrow{0}
+    \end{equation}
+    
+    Since
+    \begin{equation}
+        A \overrightarrow{\upsilon} - \lambda \overrightarrow{\upsilon} = (A - \lambda I) \cdot \overrightarrow{\upsilon} = \overrightarrow{0} \implies \lvert A - \lambda I \rvert = 0
+    \end{equation}
+    
+    Hence, to solve for $\lambda$, use the equality
+    \begin{equation}
+        \lvert A - \lambda I \rvert = 0
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    An example.
+    
+    For the system of linear equations
+    \begin{equation}
+        \left\{
+        \begin{array}{c}
+            x\prime = 2 x + 2 y \\
+            y\prime = 2 x + 5 y \\
+        \end{array}
+        \right.
+    \end{equation}
+    
+    \begin{equation}
+        A = \begin{bmatrix}
+            2 & 2 \\
+            2 & 5 \\
+        \end{bmatrix}
+    \end{equation}
+    
+    \begin{equation}
+        \lvert A - \lambda I \rvert 
+        =
+        \begin{detmatrix}{2}
+            2 - \lambda & 2           \\
+            2           & 5 - \lambda \\
+        \end{detmatrix}
+        = \lambda^2 - 7 \lambda + 6 
+        = 0
+    \end{equation}
+    
+    Then there exist two \textit{eigenvalues}
+    \begin{equation}
+        \lambda^2 - 7 \lambda + 6 \implies \lambda_1 = 1, \lambda_2 = 6
+    \end{equation}
+    
+    Then
+    \begin{equation}
+        A - \lambda_1 I = \begin{bmatrix}
+            1 & 2 \\
+            2 & 4 \\
+        \end{bmatrix}
+    \end{equation}
+    
+    And
+    \begin{equation}
+        A - \lambda_2 I = \begin{bmatrix}
+            -4 & 2  \\
+            2  & -1 \\
+        \end{bmatrix}
+    \end{equation}
+    
+    To find the \textit{eigenvector} associated with each \textit{eigenvalue}:
+    
+    \begin{enumerate}
+        \item Case $\lambda_1 = 1$
+            \subitem From the system, to find the \textit{eigenvector} ${\overrightarrow{\upsilon}}_{\lambda_1}$
+            \begin{equation}
+                (A - \lambda_1 I)
+                \begin{bmatrix}
+                    {\overrightarrow{\upsilon}}_{1} \\
+                    {\overrightarrow{\upsilon}}_{2}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    0 \\
+                    0
+                \end{bmatrix}
+                \Rightarrow 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    2 & 4 \\
+                \end{bmatrix}
+                \begin{bmatrix}
+                    {\overrightarrow{\upsilon}}_{1} \\
+                    {\overrightarrow{\upsilon}}_{2}
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    0 \\
+                    0
+                \end{bmatrix}
+            \end{equation}
+            
+            Via Gaussian elimination,
+            \begin{equation}
+                \Leftrightarrow 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    0 & 0 \\
+                \end{bmatrix}
+                \begin{bmatrix}
+                    {\overrightarrow{\upsilon}}_{1} \\
+                    {\overrightarrow{\upsilon}}_{2} \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    0 \\
+                    0
+                \end{bmatrix}
+                \quad\quad \implies
+                \left\{
+                \begin{array}{l}
+                    1 v_1 + 2 v_2 = 0 \\
+                    0 + 0 = 0 \\
+                \end{array}
+                \right.
+            \end{equation}
+            
+            Then there exists an \textit{infinite} number of solutions where
+            \begin{equation}
+                v_1 = -2 v_2
+            \end{equation}
+            
+            Taking one of them is sufficient, e.g.
+            \begin{equation}
+                {\overrightarrow{\upsilon}}_{\lambda_1}
+                = 
+                \begin{bmatrix}
+                    -2 \\
+                    1  \\
+                \end{bmatrix}
+            \end{equation}
+            
+            Check that for the \textit{eigenvalue}-\textit{eigenvector} pair that
+            \begin{equation}
+                A {\overrightarrow{\upsilon}}_{\lambda_1} = \lambda_1 {\overrightarrow{\upsilon}}_{\lambda_1}
+            \end{equation}
+            \begin{equation}
+                \begin{bmatrix}
+                    2 & 2 \\
+                    2 & 5 \\
+                \end{bmatrix}
+                \begin{bmatrix}
+                    -2 \\
+                    1 \\
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    -2 \\
+                    1 \\
+                \end{bmatrix}
+                =
+                \lambda_1
+                \begin{bmatrix}
+                    -2 \\
+                    1 \\
+                \end{bmatrix}
+            \end{equation}
+        \item Case $\lambda_2 = 6$
+            \subitem Repeat the same procedure, and the \textit{eigenvector} takes the value
+            \begin{equation}
+                {\overrightarrow{\upsilon}}_{\lambda_2}
+                = 
+                \begin{bmatrix}
+                    1 \\
+                    2 \\
+                \end{bmatrix}
+            \end{equation}
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}
+    With $A$ being symmetric, then \textit{eigenvectors} ${\overrightarrow{\upsilon}}_{\lambda_1}$ and ${\overrightarrow{\upsilon}}_{\lambda_2}$ are \textit{orthogonal}
+    \begin{equation}
+        \begin{bmatrix}
+            {\overrightarrow{\upsilon}}_{\lambda_1} & {\overrightarrow{\upsilon}}_{\lambda_2}
+        \end{bmatrix}
+        \begin{bmatrix}
+            {\overrightarrow{\upsilon}}_{\lambda_1} \\
+            {\overrightarrow{\upsilon}}_{\lambda_2}
+        \end{bmatrix}
+        \equiv
+        \overrightarrow{0}
+    \end{equation}
+\end{remark}
+
+\begin{remark}
+    For the system of linear equations
+    \begin{equation}
+        \left\{
+        \begin{array}{l}
+            x\prime = \frac{\sqrt{2}}{2} x + \frac{\sqrt{2}}{2} y  \\
+            y\prime = -\frac{\sqrt{2}}{2} x + \frac{\sqrt{2}}{2} y \\
+        \end{array}
+        \right.
+    \end{equation}
+    
+    \begin{equation}
+        A = 
+        \begin{bmatrix}
+            \frac{\sqrt{2}}{2}  & \frac{\sqrt{2}}{2} \\
+            -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+        \end{bmatrix}
+    \end{equation}
+    
+    \begin{equation}
+        \lvert A - \lambda I \rvert
+        =
+        \begin{detmatrix}{2}
+            \frac{\sqrt{2}}{2} - \lambda  & \frac{\sqrt{2}}{2}           \\
+            -\frac{\sqrt{2}}{2}           & \frac{\sqrt{2}}{2} - \lambda \\
+        \end{detmatrix}
+        = \left( \frac{\sqrt{2}}{2} - \lambda \right)^2 + \frac{1}{2}
+        = 0
+    \end{equation}
+    
+    And thus there is no \textit{real} \textit{eigenvalues}; this $A$ is in fact a \textit{rotation}.
+\end{remark}
