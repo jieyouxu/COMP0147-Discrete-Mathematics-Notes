@@ -310,3 +310,38 @@
         Then \textit{only} Alice can decrypt the encrypted message $c$ in polynomial time.
     \end{enumerate}
 \end{definition}
+
+\begin{remark}
+    An example of the RSA process:
+    \begin{enumerate}
+        \item Alice provides secret primes $p = 3, q = 41$
+        \begin{equation}
+            n = 3 \ast 41 = 123
+        \end{equation}
+        \item Alice provides two integers $d = 27, e = 3$
+        \begin{align}
+            d \ast e \Mod{\phi(3 \ast 41)}  &= 27 \ast 3 \Mod{\phi(3 \ast 41)} \\
+                                            &= 81 \Mod{[\phi(3) \ast \phi(41)]} \\
+                                            &= 81 \Mod{[2 \ast 40]} \\
+                                            &= 81 \Mod{80} \\
+                                            &= 1 \Mod{80}
+        \end{align}
+        \item Alice distributes $(n, e) = (123, 3)$ to everyone.
+        \item The encryption and decryption functions are
+        \begin{align}
+            \Encrypt{n}{e}{m} &= m^3 \Mod{n} \\
+            \Decrypt{n}{d}{c} &= c^{27} \Mod{n}
+        \end{align}
+        \item Given a message $m = 5$ then Bob sends
+        \begin{align}
+            c &= 5^3 \Mod{123} \\
+              &= 125 \Mod{123} \\
+              &= 2 \Mod{123}
+        \end{align}
+        \item Alice receives the encrypted message $c = 2$ and decrypts with the fact that  $\gcd(123, 5) = 1$
+        \begin{align}
+            m\prime \Mod{123} &= 2^{27} \Mod{123} \\
+                              &= 5 \Mod{123}
+        \end{align}
+    \end{enumerate}
+\end{remark}
