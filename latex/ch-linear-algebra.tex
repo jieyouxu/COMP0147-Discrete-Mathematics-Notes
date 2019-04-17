@@ -1,0 +1,230 @@
+\chapter{Linear Algebra}
+
+\section{Matrix Basics}
+
+\begin{definition}[Matrix]
+    A $(n \times m)$-dimension matrix $A$ has $n$ rows and $m$ columns, and each of its entries $a_{j, k}$, for $1 \le j \le n$ and $1 \le k \le m$ are denoted as
+    \begin{equation}
+        A = \begin{bmatrix}
+            a_{1, 1} & a_{1, 2} & \dots  & a_{1, m} \\
+            a_{2, 1} & a_{2, 2} & \dots  & a_{2, m} \\
+            \vdots   & \vdots   & \ddots & \vdots   \\
+            a_{n, 1} & a_{n, 2} & \dots & a_{n, m} \\
+        \end{bmatrix}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Set of Matrices of Dimension $n \times m$]
+    Let $\MatrixClass{n}{m}$ denote the set of all matrices with dimension $n \times m$, that is, having $n$ rows and $m$ columns.
+\end{definition}
+
+\begin{definition}[Square Matrix]
+    A \textit{square matrix} is a matrix with dimension $n \times n$.
+\end{definition}
+
+\begin{definition}[Matrix Addition]
+    Let $A, B \in \MatrixClass{n}{m}$ be two matrices of the same dimension $n \times m$. Then the sum matrix $C = A + B$ is defined to have entries
+    \begin{equation}
+        c_{j, k} = a_{j, k} + b_{j, k}
+    \end{equation}
+    
+    That is,
+    \begin{equation}
+        \begin{split}
+            \begin{bmatrix}
+                a_{1, 1} & a_{1, 2} & \dots  & a_{1, m} \\
+                a_{2, 1} & a_{2, 2} & \dots  & a_{2, m} \\
+                \vdots   & \vdots   & \ddots & \vdots   \\
+                a_{n, 1} & a_{n, 2} & \dots & a_{n, m} \\
+            \end{bmatrix} 
+            + 
+            \begin{bmatrix}
+                b_{1, 1} & b_{1, 2} & \dots  & b_{1, m} \\
+                b_{2, 1} & b_{2, 2} & \dots  & b_{2, m} \\
+                \vdots   & \vdots   & \ddots & \vdots   \\
+                b_{n, 1} & b_{n, 2} & \dots & b_{n, m} \\
+            \end{bmatrix} \\
+            \coloneqq
+            \begin{bmatrix}
+                a_{1, 1} + b_{1, 1} & a_{1, 2} + b_{1, 2} & \dots & a_{1, m} + b_{1, m} \\
+                a_{2, 1} + b_{2, 1} & a_{2, 2} + b_{2, 2} & \dots & a_{2, m} + b_{2, m} \\
+                \vdots   & \vdots   & \ddots & \vdots   \\
+                a_{n, 1} + b_{n, 1} & a_{n, 2} + b_{n, 2} & \dots & a_{n, m} + b_{n, m} \\
+            \end{bmatrix}
+        \end{split}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Matrix Multiplication]
+    Let $A$ be an $(l \times m)$ matrix and $B$ be an $(m \times n)$ matrix. Then their product $C = A \cdot B$ is the $(l \times n)$ matrix where each entry $c_{j, k}$ is
+    \begin{equation}
+        c_{j, k} \coloneqq \sum\limits^{m}_{s = 1} a_{j, s} b_{s, k}
+    \end{equation}
+    
+    Note that matrix multiplication is \textit{not commutative}, that is, for most cases $A \cdot B \ne B \cdot A$
+\end{definition}
+
+\begin{definition}[Identity Matrix]
+    Let $I_n$ denote the \textit{identity} matrix with dimension $n \times n$
+    \begin{equation}
+        I_n \coloneqq \begin{bmatrix}
+            1      & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 1      \\
+        \end{bmatrix}
+    \end{equation}
+    
+    Notice that all diagonal entries $i_{j, k}$ with indices $j = k$ is $1$, while all other entries are $0$.
+    
+    Alternatively, the \textit{identity} matrix can be defined with entries $\delta_{j, k}$ where $\delta$ is the \textit{Kronecker symbol} such that
+    \begin{equation}
+        \delta_{j, k} \coloneqq \begin{cases}
+            1 & j = k \\
+            0 & j \ne k
+        \end{cases}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Matrix Multiplication by Scalar $\lambda$]
+    Let $\lambda \in \Real$ be a constant, then the multiplication of an $(n \times m)$-dimension matrix $A$ by $\lambda$ is defined as
+    \begin{equation}
+        \lambda A \coloneqq \begin{bmatrix}
+            \lambda a_{1, 1} & \lambda a_{1, 2} & \cdots & \lambda a_{1, m} \\
+            \lambda a_{2, 1} & \lambda a_{2, 2} & \cdots & \lambda a_{2, m} \\
+            \vdots           & \vdots           & \ddots & \vdots \\
+            \lambda a_{n, 1} & \lambda a_{n, 2} & \cdots & \lambda a_{n, m} \\
+        \end{bmatrix}
+    \end{equation}
+    
+    If the dimension of $A$ is $n \times n$, i.e. $A$ is a \textit{square matrix}, then $\lambda A$ is equivalently
+    \begin{equation}
+        \lambda A \coloneqq
+        \begin{bmatrix}
+            \lambda & 0       & \cdots & 0       \\
+            0       & \lambda & \cdots & 0       \\
+            \vdots  & \vdots  & \ddots & \vdots  \\
+            0       & 0       & \cdots & \lambda \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            a_{1, 1} & a_{1, 2} & \dots  & a_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \dots  & a_{2, n} \\
+            \vdots   & \vdots   & \ddots & \vdots   \\
+            a_{n, 1} & a_{n, 2} & \dots  & a_{n, n} \\
+        \end{bmatrix}
+    \end{equation}
+\end{definition}
+
+\begin{lemma}
+    If $A$ is a matrix with dimension $n \times n$, $A$ is a \textit{square} matrix, then
+    \begin{equation}
+        A I \equiv I A \equiv A
+    \end{equation}
+    Where $I$ is the \textit{identity} matrix with dimension $n \times n$.
+\end{lemma}
+
+\begin{proof}
+    Let $B = AI$, then
+    \begin{equation}
+        b_{j, k} = \sum\limits^{n}_{s = 1} a_{j, s} \delta_{s, k}
+    \end{equation}
+    Only $\delta_{k, k}$ is non-zero, thus $b_{j, k} = a_{j, k}$. The same is true for $IA$.
+\end{proof}
+
+\subsection{Matrix Addition and Multiplication Properties}
+
+\begin{proposition}[Associative Matrix Multiplication]
+    Given matrices $A \in \MatrixClass{n}{m}, B \in \MatrixClass{m}{p}$ and $C \in \MatrixClass{p}{q}$ then
+    \begin{equation}
+        (A B) C \equiv A (B C)
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+    The entry $t_{j, l}$ of $T = (A B) C$ is
+    \begin{equation}
+        t_{j, l} = \sum^{p}_{k = 1} \left( \sum^{m}_{s = 1} a_{j, s} b_{s, k} \right) c_{k, l} \equiv \sum^{p}_{k = 1} a_{j, s} \left( \sum^{m}_{s = 1} b_{s, k} c_{k, l} \right) = u_{j, l}
+    \end{equation}
+    Where $u_{j, l}$ are entries of the matrix $U = A (B C)$
+\end{proof}
+
+\begin{proposition}[Distributive Matrix Multiplication]
+    Given matrices $A \in \MatrixClass{n}{m}, B \in \MatrixClass{m}{p}$ and $C \in \MatrixClass{p}{q}$ then
+    \begin{align}
+        A (B + C) &= A B + A C \\
+        (A + B) C &= A C + B C
+    \end{align}
+\end{proposition}
+
+\begin{proof}
+    Let $S = A (B + C)$ and $E = A B + A B$, then each entry $s_{j, l}$ from $S$ is
+    \begin{equation}
+        s_{j, l} = \sum\limits^{m}_{s = 1} a_{j, s} ( b_{s, l} + c_{s, l} ) \equiv \sum\limits^{m}_{s = 1} a_{j, s} b_{s, l} + \sum\limits^{m}_{s = 1} a_{j, s} c_{s, l} = e_{j, l}
+    \end{equation}
+    Where $e_{j, l}$ are entries from $E$.
+    
+    Let $T = (A + B) C$ and $F = A C + B C$, then each entry $t_{j, l}$ from $T$ is
+    \begin{equation}
+        t_{j, l} = \sum\limits^{m}_{s = 1} (a_{j, s} + b_{s, l}) c_{s, l}\equiv \sum\limits^{m}_{s = 1} a_{j, s} c_{s, l} + \sum\limits^{m}_{s = 1} b_{j, s} c_{s, l} = f_{j, l}
+    \end{equation}
+    Where $f_{j, l}$ are entries from $F$.
+\end{proof}
+
+\section{Solving Linear System of Equations}
+
+\begin{definition}
+    Matrices are useful to solve a linear system of equations of the form
+    \begin{equation}
+        \left\{
+        \begin{array}{c c}
+            a_{1, 1} x_1 + a{1, 2} x_2 + \cdots + a_{1, n} x_n &= b_1 \\
+            a_{2, 1} x_1 + a{2, 2} x_2 + \cdots + a_{2, n} x_n &= b_2 \\
+            \vdots &\phantom{}  \\
+            a_{n, 1} x_1 + a{n, 2} x_2 + \cdots + a_{n, n} x_n &= b_n \\
+        \end{array}
+        \right.
+    \end{equation}
+    
+    Then, the matrix of the \textit{coefficients} is denoted as $A$ with dimension $n \times n$ where
+    \begin{equation}
+        A = \begin{bmatrix}
+            a_{1, 1} & a_{1, 2} & \dots  & a_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \dots  & a_{2, n} \\
+            \vdots   & \vdots   & \ddots & \vdots   \\
+            a_{n, 1} & a_{n, 2} & \dots & a_{n, n} \\
+        \end{bmatrix}
+    \end{equation}
+    
+    The \textit{unknowns} are denoted as $X$ with dimension $n \times 1$ where
+    \begin{equation}
+        X = \begin{bmatrix}
+            x_1 \\
+            x_2 \\
+            \vdots \\
+            x_n
+        \end{bmatrix}
+    \end{equation}
+    
+    The \textit{constants} are denoted as $B$ with dimension $n \times 1$ where
+    \begin{equation}
+        B = \begin{bmatrix}
+            b_1 \\
+            b_2 \\
+            \vdots \\
+            b_n
+        \end{bmatrix}
+    \end{equation}
+    
+    Together, they yield the matrix equation
+    \begin{equation}
+        A \cdot X = B
+    \end{equation}
+    To solve for $X$, one needs to find the \textit{inverse matrix} $\Inverse{A}$ of $A$ such that
+    \begin{align}
+        A \cdot X                   &= B \\
+        \Inverse{A} \cdot A \cdot X &= \Inverse{A} \cdot B \\
+        I \cdot X                   &= \Inverse{A} \cdot B \\
+        X                           &= \Inverse{A} \cdot B
+    \end{align}
+    Where $I$ is the \textit{identity matrix}.
+\end{definition}
