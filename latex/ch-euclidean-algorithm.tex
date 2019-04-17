@@ -30,7 +30,7 @@
 \end{proposition}
 
 \begin{remark}
-    To solve the congruence $4 \ast x = 1 \pmod{17}$ for $x$, find $x$ in the form of $x = \Inverse{4} \pmod{17}$.
+    To solve the congruence $4 \ast x = 1 \Mod{17}$ for $x$, find $x$ in the form of $x = \Inverse{4} \Mod{17}$.
     
     For instance, to find $\gcd(34, 13)$ as a linear combination $k_1 a + k_2 b$, then first use the Euclidean algorithm to find $\gcd(34, 13)$:
     \begin{equation}
@@ -98,24 +98,24 @@
 \section{Problems for Integers Modulo m}
 
 \begin{itemize}
-    \item $\boxed{a \ast x = b \pmod{m} \Leftrightarrow x = \Inverse{a} \ast b \pmod{m}}$
+    \item $\boxed{a \ast x = b \Mod{m} \Leftrightarrow x = \Inverse{a} \ast b \Mod{m}}$
         \subitem For $\PosRat$, given some $a, b, m \in \Int$
         \begin{align}
-            a \ast x                                  &= b \pmod{m} \\
-            \Leftrightarrow \Inverse{a} \ast a \ast x &= \Inverse{a} \ast b \pmod{m} \\
-            \Leftrightarrow x                         &= \Inverse{a} \ast b \pmod{m}
+            a \ast x                                  &= b \Mod{m} \\
+            \Leftrightarrow \Inverse{a} \ast a \ast x &= \Inverse{a} \ast b \Mod{m} \\
+            \Leftrightarrow x                         &= \Inverse{a} \ast b \Mod{m}
         \end{align}
-    \item $\boxed{a^n \pmod{m} \Leftrightarrow (a \cdot a^2 \cdot a^4 \cdot a^8, \dots) \pmod{m}}$
+    \item $\boxed{a^n \Mod{m} \Leftrightarrow (a \cdot a^2 \cdot a^4 \cdot a^8, \dots) \Mod{m}}$
         \subitem That is, to decompose the exponent into smaller equivalences.
-    \item $\boxed{x^a = b \pmod{m} \Leftrightarrow x = b^{\Inverse{a}} \pmod{m}}$
+    \item $\boxed{x^a = b \Mod{m} \Leftrightarrow x = b^{\Inverse{a}} \Mod{m}}$
         \subitem For $\PosRat$, given some $a, b, m \in \Int$
         \begin{align}
-            x^a &= b \pmod{m} \\
-            x   &= \sqrt[a]{b} \pmod{m} \\
-            x   &= b^{\frac{1}{a}} \pmod{m} \\
-            x   &= b^{\Inverse{a}} \pmod{m}
+            x^a &= b \Mod{m} \\
+            x   &= \sqrt[a]{b} \Mod{m} \\
+            x   &= b^{\frac{1}{a}} \Mod{m} \\
+            x   &= b^{\Inverse{a}} \Mod{m}
         \end{align}
-    \item For the discrete logarithm: $\boxed{a^x = b \pmod{m} \Leftrightarrow x = \log_a{b} \pmod{m}}$
+    \item For the discrete logarithm: $\boxed{a^x = b \Mod{m} \Leftrightarrow x = \log_a{b} \Mod{m}}$
 \end{itemize}
 
 \section{Multiplicative Group of Integers Modulo m}
@@ -132,7 +132,7 @@
     \begin{equation}
         G^{\times}_{m} \coloneqq \set{a \in \Int \mid (1 \le a < m) \land (\gcd(a, b) = 1)}
     \end{equation}
-    Forms a group $\left( G^{\times}_{m}, \ast \pmod{m} \right)$ under \textit{multiplicative modulo} $m$.
+    Forms a group $\left( G^{\times}_{m}, \ast \Mod{m} \right)$ under \textit{multiplicative modulo} $m$.
     
     \begin{enumerate}
         \item \textbf{Closure}
@@ -148,11 +148,11 @@
         \end{equation}
         \item \textbf{Invertibility}
         \begin{equation}
-            \Forall a \in G^{\times}_{m} \colon \Exists y \in G^{\times}_{m} \colon a \ast y = 1 \pmod{m}
+            \Forall a \in G^{\times}_{m} \colon \Exists y \in G^{\times}_{m} \colon a \ast y = 1 \Mod{m}
         \end{equation}
         For which the inverse element $y$ is denoted $\Inverse{a}$, giving
         \begin{equation}
-            \Forall a \in G^{\times}_{m} \colon a \ast \Inverse{a} = 1 \pmod{m}
+            \Forall a \in G^{\times}_{m} \colon a \ast \Inverse{a} = 1 \Mod{m}
         \end{equation}
     \end{enumerate}
 \end{definition}
@@ -177,3 +177,49 @@
         \phi(ab) \equiv \phi(a) \phi(b)
     \end{equation}
 \end{theorem}
+
+\begin{theorem}
+    If $a, m \in \Int$ are \textit{relatively prime} (i.e. $\gcd(a, m) = 1$) then
+    \begin{equation}
+        a^{\phi(m)} = 1 \Mod{m}
+    \end{equation}
+\end{theorem}
+
+\begin{remark}
+    Given $a \in G^{\times}_{m}$, to find $x$ such that 
+    \begin{equation}
+        a \ast x = b \Mod{m}
+    \end{equation}
+    Find $\Inverse{a} \Mod{m}$.
+    
+    For example, for
+    \begin{equation}
+        13 \ast x = 6 \Mod{34}
+    \end{equation}
+    
+    Since
+    \begin{equation}
+        x = \Inverse{13} \ast 6 \Mod{34}
+    \end{equation}
+    
+    Find $\Inverse{13} \Mod{34}$ via the \textit{Euclidean algorithm} which gives
+    \begin{equation}
+        \Inverse{13} = 21 \Mod{34}
+    \end{equation}
+    
+    Then
+    \begin{align}
+        x &= 21 \ast 6 \Mod{34} \\
+          &= 126 - 3 \ast 34 \Mod{34} \\
+          &= 24 \Mod{34}
+    \end{align}
+\end{remark}
+
+\begin{remark}
+    To compute expressions of the form
+    \begin{equation}
+        a^n \Mod{m}
+    \end{equation}
+    
+    One should decompose $a^n$ to $a^n = a \cdot a^2 \cdot a^4 \cdot \cdots$, and use the equality for $a^{\phi(m)} = 1 \Mod{m}$ given $\gcd(a, m) = 1$ whenever possible.
+\end{remark}

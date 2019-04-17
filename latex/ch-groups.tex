@@ -317,7 +317,7 @@ It has the following properties:
 \end{proof}
 
 \begin{remark}
-    To demonstrate Lagrange's Theorem, let the \textit{group} be constructed from $x \ast y \pmod{10}$.
+    To demonstrate Lagrange's Theorem, let the \textit{group} be constructed from $x \ast y \Mod{10}$.
     
     Let $(G, \ast)$ be a finite \textit{group} of order $n = 4$ where
     \begin{equation}
@@ -330,7 +330,7 @@ It has the following properties:
     \centering
     \begin{tabular}{c | c c}
     \toprule
-    $\ast \pmod{10}$ & $1$ & $9$ \\
+    $\ast \Mod{10}$ & $1$ & $9$ \\
      \midrule
     $1 \ast H$       & $1$ & $9$ \\
     $3 \ast H$       & $3$ & $7$ \\
@@ -459,21 +459,21 @@ It has the following properties:
 \end{proof}
 
 \begin{remark}
-    This may be used to calculate the modulo of integers raised to large exponents. For example, for $2^{20} \pmod{15}$. To compute this, let the \textit{multiplicative group} $(G, \ast)$ be defined over $G$ of \textit{order} $8$ where
+    This may be used to calculate the modulo of integers raised to large exponents. For example, for $2^{20} \Mod{15}$. To compute this, let the \textit{multiplicative group} $(G, \ast)$ be defined over $G$ of \textit{order} $8$ where
     \begin{equation}
         G = \set{1, 2, 4, 7, 8, 11, 13, 14}
     \end{equation}
-    And the \textit{binary operation} $x \ast y \coloneqq x \ast y \pmod{15}$.
+    And the \textit{binary operation} $x \ast y \coloneqq x \ast y \Mod{15}$.
     
-    Note that $\Inverse{2} = 8 \pmod{15}$ and $\Inverse{4} = 4 \pmod{15}$.
+    Note that $\Inverse{2} = 8 \Mod{15}$ and $\Inverse{4} = 4 \Mod{15}$.
     
     Since $\lvert G \rvert = 8$,
     \begin{equation}
-        2^8 = 1 \pmod{15}
+        2^8 = 1 \Mod{15}
     \end{equation}
     
-    Then $2^{20} \pmod{15}$ can be calculated by decomposing its exponent:
+    Then $2^{20} \Mod{15}$ can be calculated by decomposing its exponent:
     \begin{equation}
-        2^{20} = 2^{2 \cdot 8 + 4} = (2^8)^2 \ast 2^4 = 1 \ast 16 = 1 \pmod{15}
+        2^{20} = 2^{2 \cdot 8 + 4} = (2^8)^2 \ast 2^4 = 1 \ast 16 = 1 \Mod{15}
     \end{equation}
 \end{remark}
