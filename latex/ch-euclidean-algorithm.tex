@@ -165,7 +165,14 @@
 \end{theorem}
 
 \begin{theorem}
-    If $p$ is a prime and $k \ge 1$ then
+    If $p$ is prime then
+    \begin{equation}
+        \phi(p) \equiv p - 1
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    If $p$ is prime and $k \ge 1$ then
     \begin{equation}
         \phi(p^k) \equiv p^{k - 1}(p - 1)
     \end{equation}
@@ -182,6 +189,18 @@
     If $a, m \in \Int$ are \textit{relatively prime} (i.e. $\gcd(a, m) = 1$) then
     \begin{equation}
         a^{\phi(m)} = 1 \Mod{m}
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}[Fermat's Little Theorem]
+    Given $p$ is a prime number, then for any $a \in \Int$
+    \begin{equation}
+        a^p \equiv a \Mod{p}
+    \end{equation}
+    
+    Additionally, if $a, p \in \Int$ are \textit{relatively prime}, $\gcd(a, p) = 1$,
+    \begin{equation}
+        a^{p - 1} \equiv 1 \Mod{p}
     \end{equation}
 \end{theorem}
 
@@ -221,5 +240,32 @@
         a^n \Mod{m}
     \end{equation}
     
-    One should decompose $a^n$ to $a^n = a \cdot a^2 \cdot a^4 \cdot \cdots$, and use the equality for $a^{\phi(m)} = 1 \Mod{m}$ given $\gcd(a, m) = 1$ whenever possible.
+    One should decompose $a^n$ to $a^n = a \cdot a^2 \cdot a^4 \cdot \cdots$, and use Fermat's Little Theorem and Euler Totient Function Identities whenever possible.
+\end{remark}
+
+\begin{remark}
+    For equations of the form
+    \begin{equation}
+        x^a = b \Mod{m}
+    \end{equation}
+    Then
+    \begin{equation}
+        x = b^{\Inverse{a}} \Mod{m}
+    \end{equation}
+    
+    If $\gcd(a, \phi(m)) = 1$ then
+    \begin{align}
+        a \ast y &= 1 \Mod{\phi(m)} \\
+        x        &= b^y \Mod{m}
+    \end{align}
+    
+    if $\gcd(b, m) = 1$, that is if $b, m$ are \textit{relatively prime}
+    \begin{align}
+        x^a &= (b^y)^a \Mod{m} \\
+            &= b^{a \ast y} \Mod{m} \\
+            &= b^{1 + k \phi(m)} \Mod{m} \\
+            &= b \ast (b^{\phi(m)})^k \Mod{m} \\
+            &= b \ast 1^k \Mod{m} \\
+            &= b \Mod{m}
+    \end{align}
 \end{remark}
