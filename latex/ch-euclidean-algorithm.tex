@@ -269,3 +269,44 @@
             &= b \Mod{m}
     \end{align}
 \end{remark}
+
+
+\section{Rivest–Shamir–Adleman (RSA) Cryptography}
+
+\begin{definition}[RSA, Public Keys and Private Keys]
+    Given actors Alice and Bob, the process of RSA is
+    \begin{enumerate}
+        \item Alice provides \textit{secrete} primes $p$ and $q$.
+        \begin{equation}
+            n = p \ast q
+        \end{equation}
+        \item Alice provides two integers $d$ and $e$ such that
+        \begin{equation}
+            d \ast e = 1 \Mod{\phi(p \ast q)}
+        \end{equation}
+        \item Alice distributes the pair $(n, e)$ to everyone.
+        \item Encryption and Decryption is then
+        \begin{align}
+            \Encrypt{n}{e}{m} &\coloneqq m^e \Mod{n} \\
+            \Decrypt{n}{d}{m} &\coloneqq c^d \Mod{n}
+        \end{align}
+        \item Bob \textit{encrypts} message $m$ as the encrypted message $c$ where
+        \begin{equation}
+            c \coloneqq \Encrypt{n}{e}{m}
+        \end{equation}
+        And sends $c$ to Alice.
+        \item Alice \textit{decrypts} $c$ as
+        \begin{equation}
+            m\prime = \Decrypt{n}{d}{c}
+        \end{equation}
+        Check that $\gcd(m, n) = 1$, that is if $m, n$ are \textit{relatively prime}, then
+        \begin{align}
+            m\prime \Mod{n} &= c^d \Mod{n} \\
+                            &= (m^e)^d \Mod{n} \\
+                            &= m^{d \ast e} \Mod{n} \\
+                            &= m^{1 + k\phi(p \ast q)} \Mod{n} \\
+                            &= m \Mod{n}
+        \end{align}
+        Then \textit{only} Alice can decrypt the encrypted message $c$ in polynomial time.
+    \end{enumerate}
+\end{definition}
