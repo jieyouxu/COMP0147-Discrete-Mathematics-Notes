@@ -157,9 +157,23 @@
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}[Euler]
+\begin{theorem}[Euler Totient Function]
     Given the \textit{multiplicative modulo group} $G^{\times}_{m}$, then
     \begin{equation}
         \phi(m) \coloneqq \lvert G^{\times}_{m} \rvert
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    If $p$ is a prime and $k \ge 1$ then
+    \begin{equation}
+        \phi(p^k) \equiv p^{k - 1}(p - 1)
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    If $a, b \in \Int$ and $a, b$ are \textit{relatively prime} (i.e. $\gcd(a, b) = 1$) then
+    \begin{equation}
+        \phi(ab) \equiv \phi(a) \phi(b)
     \end{equation}
 \end{theorem}
