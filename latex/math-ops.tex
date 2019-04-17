@@ -40,3 +40,17 @@
 \newcommand{\Decrypt}[3]{\mathrm{decrypt}_{#1, #2}(#3)}
 
 \newcommand{\MatrixClass}[2]{\mathcal{M}(#1, #2)}
+
+\newcommand{\rddots}{\reflectbox{$\ddots$}}
+
+\newenvironment{detmatrix}[1]{%
+  \left\vert\begin{array}{@{}*{#1}{c}}
+}{%
+  \end{array}\right\vert
+}
+
+\newenvironment{augmatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}

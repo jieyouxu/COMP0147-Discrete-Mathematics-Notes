@@ -170,10 +170,162 @@
     Where $f_{j, l}$ are entries from $F$.
 \end{proof}
 
+\subsection{Determinant of a Square Matrix}
+
+\begin{definition}[Determinant of a $2 \times 2$ Matrix]
+    Given a $2 \times 2$ \textit{square} matrix $A \in \MatrixClass{2}{2}$
+    \begin{equation}
+        A = \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+    \end{equation}
+    Then the determinant of $A$, denoted $\det(A)$ or $\VSBars{A}$ is calculated with
+    \begin{equation}
+        \det(A) = 
+        \left\vert
+        \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+        \right\vert
+        =
+        a d - b c
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Determinant of a $3 \times 3$ Matrix]
+    Given a $3 \times 3$ \textit{square} matrix $A \in \MatrixClass{3}{3}$
+    \begin{equation}
+        A = \begin{bmatrix}
+            a & b & c \\
+            d & e & f \\
+            g & h & i
+        \end{bmatrix}
+    \end{equation}
+    Then the determinant of $A$, denoted $\det(A)$ or $\VSBars{A}$ is calculated with
+    \begin{align}
+        \det(A) = 
+        \left\vert
+        \begin{matrix}
+            a & b & c \\
+            d & e & f \\
+            g & h & i
+        \end{matrix}
+        \right\vert
+        &=
+        a
+        \left\vert
+        \begin{matrix}
+            \square & \square & \square \\
+            \square & e       & f       \\
+            \square & h       & i
+        \end{matrix}
+        \right\vert
+        - b
+        \left\vert
+        \begin{matrix}
+            \square & \square & \square \\
+            d       & \square & f       \\
+            g       & \square & i
+        \end{matrix}
+        \right\vert
+        + c
+        \left\vert
+        \begin{matrix}
+            \square & \square & \square \\
+            d       & e       & \square \\
+            g       & h       & \square
+        \end{matrix} 
+        \right\vert \\
+        &=
+        a
+        \left\vert
+        \begin{matrix}
+            e & f \\
+            h & i
+        \end{matrix}        
+        \right\vert
+        - b
+        \left\vert
+        \begin{matrix}
+            d & f \\
+            g & i
+        \end{matrix}        
+        \right\vert
+        + c
+        \left\vert
+        \begin{matrix}
+            d & e \\
+            g & h
+        \end{matrix}        
+        \right\vert \\
+        &=
+        aei - afh + bfg - bdi + cdh - ceg 
+    \end{align}
+\end{definition}
+
+\begin{definition}[Upper Triangular Matrix]
+    An $n \times n$ matrix $A \in \MatrixClass{n}{n}$ is called a \textit{upper triangular} (or \textit{right triangular}) matrix if it has the form
+    \begin{equation}
+        A = \begin{bmatrix}
+            a_{1, 1} & a_{1, 2} & \cdots & a_{1, n} \\
+                     & a_{2, 2} & \cdots & a_{2, n} \\
+                     &          & \ddots & \vdots   \\
+            0        &          &        & a_{n, n} \\
+        \end{bmatrix}
+    \end{equation}
+    Where all the lower triangular part are $0$s.
+\end{definition}
+
+\begin{lemma}[Determinant of an Upper Triangular Matrix]
+    Given an $n \times n$ \textit{upper triangular} matrix $A$, then its \textit{determinant} $\det(A)$ can be calculated as
+    \begin{equation}
+        \det(A) =
+        \left\vert
+        \begin{matrix}
+            \gamma_1 & \ast     & \ast     & \cdots  & \ast     \\
+            \vdots   & \gamma_2 & \ast     & \rddots & \vdots   \\
+            \vdots   & \cdots   & \gamma_3 & \ast    & \ast     \\
+            \vdots   & \rddots  & \vdots   & \ddots  & \ast     \\
+            0        & \cdots   & \cdots   & \cdots  & \gamma_n 
+        \end{matrix}
+        \right\vert
+        =
+        \gamma_1 \gamma_2 \cdots \gamma_n
+    \end{equation}
+    
+    Where $\ast$ represents arbitrary entries.
+\end{lemma}
+
+\begin{corollary}
+    A specialization of this lemma is the case for $3 \times 3$ \textit{upper triangular} matrix $A$:
+    \begin{equation}
+        \det(A) =
+        \left\vert
+        \begin{matrix}
+            \gamma_1 & \ast & \ast \\
+            0        & a    & b    \\
+            0        & c    & d
+        \end{matrix}        
+        \right\vert
+        =
+        \left\vert
+        \begin{matrix}
+            \gamma_1 & \ast & \ast                    \\
+            0        & a    & b                       \\
+            0        & 0    & d - b \cdot \frac{c}{a}
+        \end{matrix}        
+        \right\vert
+        =
+        \gamma_1 (a d - b c)
+    \end{equation}
+\end{corollary}
+
 \section{Solving Linear System of Equations}
 
 \begin{definition}
-    Matrices are useful to solve a linear system of equations of the form
+    Matrices are useful for solving a \textit{linear system of equations} of the form
     \begin{equation}
         \left\{
         \begin{array}{c c}
@@ -219,12 +371,96 @@
     \begin{equation}
         A \cdot X = B
     \end{equation}
-    To solve for $X$, one needs to find the \textit{inverse matrix} $\Inverse{A}$ of $A$ such that
+    To solve for $X$, one needs to find the \textit{inverse} matrix $\Inverse{A}$ of $A$ such that
     \begin{align}
         A \cdot X                   &= B \\
         \Inverse{A} \cdot A \cdot X &= \Inverse{A} \cdot B \\
         I \cdot X                   &= \Inverse{A} \cdot B \\
         X                           &= \Inverse{A} \cdot B
     \end{align}
-    Where $I$ is the \textit{identity matrix}.
+    Where $I$ is the \textit{identity} matrix.
+\end{definition}
+
+\section{Gaussian Elimination}
+
+\begin{definition}[Augmented Matrix]
+    Given a system of linear equations
+    \begin{equation}
+        \left\{
+        \begin{array}{c c}
+            a_{1, 1} x_1 + a{1, 2} x_2 + \cdots + a_{1, n} x_n &= b_1 \\
+            a_{2, 1} x_1 + a{2, 2} x_2 + \cdots + a_{2, n} x_n &= b_2 \\
+            \vdots &\phantom{}  \\
+            a_{n, 1} x_1 + a{n, 2} x_2 + \cdots + a_{n, n} x_n &= b_n \\
+        \end{array}
+        \right.
+    \end{equation}
+    
+    Then its \textit{augmented} matrix $A \vert B$ is
+    \begin{equation}
+        \begin{augmatrix}{4}
+            a_{1, 1} & a_{1, 2} & \cdots & a_{1, n} & b_{1, n} \\
+            a_{2, 1} & a_{2, 2} & \cdots & a_{2, n} & b_{2, n} \\
+            \vdots   & \vdots   & \vdots & \ddots   & \vdots \\
+            a_{n, 1} & a_{n, 2} & \cdots & a_{n, n} & b_{n, n} \\
+        \end{augmatrix}
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Row Operations]\ \\
+    \begin{enumerate}
+        \item \textbf{Multiply and Add Row}
+            \subitem Multiply row by scalar $\gamma$ then add the result to another row.
+            \begin{equation}
+                \det(A\prime) = \det(A)
+            \end{equation}
+        \item \textbf{Swap Rows}
+            \begin{equation}
+                \det(A\prime) = -\det(A)
+            \end{equation}
+        \item \textbf{Multiply Row}
+            \subitem Multiply a row by scalar $\gamma$.
+            \begin{equation}
+                \det(A\prime) = \gamma \det(A)
+            \end{equation}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Gaussian Elimination]
+    Using the \textit{row operations} applied to $A \vert B$ then one transforms $A X = B$ into an equivalent system
+    \begin{equation}
+        A\prime X = B\prime
+    \end{equation}
+    
+    If it is the case that
+    \begin{equation}
+        A\prime = I
+    \end{equation}
+    
+    Then there exists a \textit{solution} $X = B\prime$ to the system
+    \begin{equation}
+        B\prime = A\prime X = I X = X
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Inverse Matrix]
+    The \textit{inverse} matrix $\Inverse{A}$ of $A$ is the matrix for which under multiplication yields the \textit{identity} matrix $I$
+    \begin{equation}
+        A \Inverse{A} \equiv \Inverse{A} A \equiv I
+    \end{equation}
+    
+    With \textit{Gaussian Elimination} applied to $A \vert I$ then one transforms
+    \begin{equation}
+        A \Inverse{A} = I \Rightarrow A\prime \Inverse{A} = B\prime
+    \end{equation}
+    
+    If
+    \begin{equation}
+        A\prime = I
+    \end{equation}
+    
+    Then there exists a solution to $\Inverse{A} = B\prime$
+    \begin{equation}
+        B\prime = A\prime \Inverse{A} = I \Inverse{A} = \Inverse{A}
+    \end{equation}
 \end{definition}
