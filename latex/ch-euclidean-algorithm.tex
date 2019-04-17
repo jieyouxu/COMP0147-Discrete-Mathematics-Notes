@@ -117,3 +117,49 @@
         \end{align}
     \item For the discrete logarithm: $\boxed{a^x = b \pmod{m} \Leftrightarrow x = \log_a{b} \pmod{m}}$
 \end{itemize}
+
+\section{Multiplicative Group of Integers Modulo m}
+
+\begin{definition}[Relatively Prime, Coprime]
+    Two integers $a, b \in \Int$ are \textit{relatively prime} (or \textit{coprime}) if
+    \begin{equation}
+        \gcd(a, b) = 1
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Multiplicative Group of mod $m$]
+    Given $m \in \Int$, then
+    \begin{equation}
+        G^{\times}_{m} \coloneqq \set{a \in \Int \mid (1 \le a < m) \land (\gcd(a, b) = 1)}
+    \end{equation}
+    Forms a group $\left( G^{\times}_{m}, \ast \pmod{m} \right)$ under \textit{multiplicative modulo} $m$.
+    
+    \begin{enumerate}
+        \item \textbf{Closure}
+        \begin{equation}
+            \Forall a, b, m \in G^{\times}_{m} \colon 
+                (\gcd(a, m) = 1) \land (\gcd(b, m) = 1) \to (\gcd(a \ast b, m) = 1)
+        \end{equation}
+        \item \textbf{Associativity}
+            \subitem Given by multiplication on integers modulo $m$.
+        \item \textbf{Neutral Element}
+        \begin{equation}
+            \Forall m \in G^{\times}_{m} \colon \gcd(1, m) = 1
+        \end{equation}
+        \item \textbf{Invertibility}
+        \begin{equation}
+            \Forall a \in G^{\times}_{m} \colon \Exists y \in G^{\times}_{m} \colon a \ast y = 1 \pmod{m}
+        \end{equation}
+        For which the inverse element $y$ is denoted $\Inverse{a}$, giving
+        \begin{equation}
+            \Forall a \in G^{\times}_{m} \colon a \ast \Inverse{a} = 1 \pmod{m}
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Euler]
+    Given the \textit{multiplicative modulo group} $G^{\times}_{m}$, then
+    \begin{equation}
+        \phi(m) \coloneqq \lvert G^{\times}_{m} \rvert
+    \end{equation}
+\end{theorem}
