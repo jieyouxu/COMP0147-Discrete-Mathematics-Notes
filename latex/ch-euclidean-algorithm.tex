@@ -5,7 +5,7 @@
 \begin{definition}[Euclidean Algorithm]
     The \textit{Euclidean Algorithm} can be used to compute the \textit{greatest common divisor} of two integers $a, b \in \Int$, denoted $\gcd(a, b)$.
     
-    Its process, given $a >= b$ is
+    Its process, given $a \ge b$ is
     \begin{align}
         a           &= q_0 \cdot b + r_1 \\
         b           &= q_1 \cdot r_1 + r_2 \\
@@ -23,12 +23,71 @@
 \section{gcd(a, b) as a Linear Combination of a and b}
 
 \begin{proposition}
-    For some integers $k_1$ and $k_2$, and some $d \in \Int$,
+    Given $a, b \in \Int$, then for some $k_1, k_2 \in \Int$, and some $d \in \Int$,
     \begin{equation}
         d = \gcd(a, b) = k_1 a + k_2 b
     \end{equation}
 \end{proposition}
 
 \begin{remark}
-    For example, to find $\Inverse{4} \pmod{17}$, that is to find $y$ such that $4 \ast y = 1 \pmod{17}$.
+    To solve the congruence $4 \ast x = 1 \pmod{17}$ for $x$, find $x$ in the form of $x = \Inverse{4} \pmod{17}$.
+    
+    For instance, to find $\gcd(34, 13)$ as a linear combination $k_1 a + k_2 b$, then first use the Euclidean algorithm to find $\gcd(34, 13)$:
+    \begin{equation}
+        \left.
+        \begin{aligned}
+            34 &= 2 \cdot 13 + 8 \\
+            13 &= 8 + 5 \\
+            8  &= 5 + 3 \\
+            5  &= 3 + 2 \\
+            3  &= 2 + \boxed{1} \\
+            2  &= 2 \cdot 1 + 0
+        \end{aligned}
+        \quad
+        \right\vert
+        \quad
+        \begin{aligned}
+            a   &= 2 \cdot b + r_1 \\
+            b   &= r_1 + r_2 \\
+            r_1 &= r_2 + r_3 \\
+            r_2 &= r_3 + r_4 \\
+            r_3 &= r_4 + \boxed{r_5} \\
+            r_4 &= 2 \cdot r_5 + 0
+        \end{aligned}
+    \end{equation}
+    Note that
+    \begin{equation}
+            \begin{aligned}
+                a   &= 2 \cdot b + r_1 \\
+                b   &= r_1 + r_2 \\
+                r_1 &= r_2 + r_3 \\
+                r_2 &= r_3 + r_4 \\
+                r_3 &= r_4 + \boxed{r_5} \\
+                r_4 &= 2 \cdot r_5 + 0
+            \end{aligned}
+            \quad
+            \Leftrightarrow
+            \quad
+            \begin{aligned}
+                r_1         &= a - 2b \\
+                r_2         &= b - r_1 \\
+                r_3         &= r_1 - r_2 \\
+                r_4         &= r_2 + r_3 \\
+                \boxed{r_5} &= r_3 - r_4 \\
+                \phantom{}  &\phantom{}
+            \end{aligned}
+        \end{equation}
+        It is now possible to \textit{collect} $k_1$ and $k_2$ in a bottom-up manner:
+        \begin{align}
+            \boxed{r_5} &= r_3 - r_4 \\
+                        &= r_3 - (r_2 - r_3) \\
+                        &= -r_2 + 2r_3 \\
+                        &= -r_2 - 2(r_1 - r_2) \\
+                        &= 2r_1 - 3r_2 \\
+                        &= 2r_1 - 3(b - r_1) \\
+                        &= -3b + 5r_1 \\
+                        &= -3b + 5(a - 2b) \\
+                        &= 5a - 13b
+        \end{align}
+        Hence $\gcd(34, 13) = gcd(a, b) = 5a - 13b$ for some $a, b \in \Int$.
 \end{remark}
