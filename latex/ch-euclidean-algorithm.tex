@@ -94,3 +94,26 @@
             5 \cdot 34 - 13 \cdot 13 = 170 - 169 = 1
         \end{equation}
 \end{remark}
+
+\section{Problems for Integers Modulo m}
+
+\begin{itemize}
+    \item $\boxed{a \ast x = b \pmod{m} \Leftrightarrow x = \Inverse{a} \ast b \pmod{m}}$
+        \subitem For $\PosRat$, given some $a, b, m \in \Int$
+        \begin{align}
+            a \ast x                                  &= b \pmod{m} \\
+            \Leftrightarrow \Inverse{a} \ast a \ast x &= \Inverse{a} \ast b \pmod{m} \\
+            \Leftrightarrow x                         &= \Inverse{a} \ast b \pmod{m}
+        \end{align}
+    \item $\boxed{a^n \pmod{m} \Leftrightarrow (a \cdot a^2 \cdot a^4 \cdot a^8, \dots) \pmod{m}}$
+        \subitem That is, to decompose the exponent into smaller equivalences.
+    \item $\boxed{x^a = b \pmod{m} \Leftrightarrow x = b^{\Inverse{a}} \pmod{m}}$
+        \subitem For $\PosRat$, given some $a, b, m \in \Int$
+        \begin{align}
+            x^a &= b \pmod{m} \\
+            x   &= \sqrt[a]{b} \pmod{m} \\
+            x   &= b^{\frac{1}{a}} \pmod{m} \\
+            x   &= b^{\Inverse{a}} \pmod{m}
+        \end{align}
+    \item For the discrete logarithm: $\boxed{a^x = b \pmod{m} \Leftrightarrow x = \log_a{b} \pmod{m}}$
+\end{itemize}
