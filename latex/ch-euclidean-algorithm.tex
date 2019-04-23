@@ -106,7 +106,7 @@
             \Leftrightarrow x                         &= \Inverse{a} \ast b \Mod{m}
         \end{align}
     \item $\boxed{a^n \Mod{m} \Leftrightarrow (a \cdot a^2 \cdot a^4 \cdot a^8, \dots) \Mod{m}}$
-        \subitem That is, to decompose the exponent into smaller equivalences.
+        \subitem That is, to decompose the exponent into smaller equivalences, and use identities such as $a^{\VSBars{G^{\times}_{m}}} = 1 \Mod{m}$.
     \item $\boxed{x^a = b \Mod{m} \Leftrightarrow x = b^{\Inverse{a}} \Mod{m}}$
         \subitem For $\PosRat$, given some $a, b, m \in \Int$
         \begin{align}
@@ -259,7 +259,7 @@
         x        &= b^y \Mod{m}
     \end{align}
     
-    if $\gcd(b, m) = 1$, that is if $b, m$ are \textit{relatively prime}
+    If $\gcd(b, m) = 1$, that is if $b, m$ are \textit{relatively prime}
     \begin{align}
         x^a &= (b^y)^a \Mod{m} \\
             &= b^{a \ast y} \Mod{m} \\
