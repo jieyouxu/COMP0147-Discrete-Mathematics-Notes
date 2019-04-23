@@ -100,7 +100,16 @@
     For each $i \in \set{1, \dots, n}$, starting from $i = 1$, compare $\sigma(i)$ with $\sigma(i + 1), \dots, \sigma(n)$ and add the number of disordered pairs, then move on to $i + 1$ and compare $\sigma(i + 1)$ with $\sigma(i + 2), \dots, \sigma(n)$ and so on.
 \end{remark}
 
-\begin{theorem}[Composition of Permutation]
+\begin{definition}[Composition of Permutation]
+    Given two permutations $\sigma$ and $\tau$, then their composition
+    \begin{equation}
+        (\sigma \tau) (x) \coloneqq \tau(\sigma(x))
+    \end{equation}
+    
+    With $\sigma$ applied first.
+\end{definition}
+
+\begin{theorem}[Sign of Composition of Permutation]
 	\begin{equation}
 		\Sign(\sigma_1 \sigma_2) \coloneqq \Sign(\sigma_1) \cdot \Sign(\sigma_2)
 	\end{equation}

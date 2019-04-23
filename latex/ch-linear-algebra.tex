@@ -183,12 +183,10 @@
     Then the determinant of $A$, denoted $\det(A)$ or $\VSBars{A}$ is calculated with
     \begin{equation}
         \det(A) = 
-        \left\vert
-        \begin{bmatrix}
+        \begin{detmatrix}{2}
             a & b \\
             c & d
-        \end{bmatrix}
-        \right\vert
+        \end{detmatrix}
         =
         a d - b c
     \end{equation}
@@ -585,9 +583,9 @@
         \item A real number $\lambda \in \Real$ is an \textit{eigenvalue} of $A$
         \item A non-zero vector $\overrightarrow{\upsilon}$ is an \textit{eigenvector}
     \end{enumerate}
-    If
+    Then
     \begin{equation}
-        A \overrightarrow{\upsilon} = \lambda \overrightarrow{\upsilon}, \overrightarrow{\upsilon} \ne \overrightarrow{0}
+        A \overrightarrow{\upsilon} = \lambda \overrightarrow{\upsilon}, \quad \overrightarrow{\upsilon} \ne \overrightarrow{0}
     \end{equation}
     
     Since
@@ -595,9 +593,14 @@
         A \overrightarrow{\upsilon} - \lambda \overrightarrow{\upsilon} = (A - \lambda I) \cdot \overrightarrow{\upsilon} = \overrightarrow{0} \implies \lvert A - \lambda I \rvert = 0
     \end{equation}
     
-    Hence, to solve for $\lambda$, use the equality
+    Hence, to solve for $\lambda$, use
     \begin{equation}
         \lvert A - \lambda I \rvert = 0
+    \end{equation}
+    
+    Then substitute the found \textit{eigvenvalue} $\lambda$ to find its corresponding \textit{eigvenvector} $\overrightarrow{v}$ with
+    \begin{equation}
+        (A - \lambda I) \cdot \overrightarrow{\upsilon} = \overrightarrow{0}
     \end{equation}
 \end{definition}
 
@@ -661,8 +664,8 @@
             \begin{equation}
                 (A - \lambda_1 I)
                 \begin{bmatrix}
-                    {\overrightarrow{\upsilon}}_{1} \\
-                    {\overrightarrow{\upsilon}}_{2}
+                    {\upsilon}_{1} \\
+                    {\upsilon}_{2}
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
@@ -675,8 +678,8 @@
                     2 & 4 \\
                 \end{bmatrix}
                 \begin{bmatrix}
-                    {\overrightarrow{\upsilon}}_{1} \\
-                    {\overrightarrow{\upsilon}}_{2}
+                    {\upsilon}_{1} \\
+                    {\upsilon}_{2}
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
@@ -693,8 +696,8 @@
                     0 & 0 \\
                 \end{bmatrix}
                 \begin{bmatrix}
-                    {\overrightarrow{\upsilon}}_{1} \\
-                    {\overrightarrow{\upsilon}}_{2} \\
+                    {\upsilon}_{1} \\
+                    {\upsilon}_{2} \\
                 \end{bmatrix}
                 =
                 \begin{bmatrix}
@@ -704,7 +707,7 @@
                 \quad\quad \implies
                 \left\{
                 \begin{array}{l}
-                    1 v_1 + 2 v_2 = 0 \\
+                    1 \upsilon_1 + 2 \upsilon_2 = 0 \\
                     0 + 0 = 0 \\
                 \end{array}
                 \right.
@@ -712,7 +715,7 @@
             
             Then there exists an \textit{infinite} number of solutions where
             \begin{equation}
-                v_1 = -2 v_2
+                \upsilon_1 = -2 \upsilon_2
             \end{equation}
             
             Taking one of them is sufficient, e.g.

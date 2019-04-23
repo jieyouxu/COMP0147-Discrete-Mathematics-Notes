@@ -45,7 +45,7 @@ It has the following properties:
 \begin{proposition}[Multiplicative Group]
     A \textit{multiplicative group} is a \textit{group} $(G, \ast)$ which has the binary operation $\ast \colon G \times G \to G$:
     \begin{itemize}
-        \item \textbf{Closure, Associativity}. The multiplication operation $\ast \colon G \times G \to G$ is closed and is left associative.
+        \item \textbf{Closure, Associativity}. The multiplication operation $\ast \colon G \times G \to G$ is closed and is associative.
         \item \textbf{Neutral Element}. The neutral element $\epsilon$ is unique.
         \item \textbf{Invertibility}. The inverse element $\Inverse{x}$ is unique.
         \item For all $a, b \in G$ the equation
@@ -143,16 +143,17 @@ It has the following properties:
             a + x = b
         \end{equation}
         Has a unique solution
-        \begin{equation}
-            x = b + (-a) = b - a
-        \end{equation}
+        \begin{align}
+            (-a) + a + x &= (-a) + b \\
+            x &= (-a) + b = b - a
+        \end{align}
     \end{itemize}
 \end{remark}
 
 \section{Associativity of Sequential Composition of Functions}
 
 \begin{definition}[Sequential Composition of Functions]
-    Let $f \ast g$ denote the sequential composition of functions $f \ast X \to Y$ and $g \colon Y \to Z$ such that $f \ast g \colon X \to Z$ where $f$ is applied first then $g$, i.e. $\Forall x \in X \colon (f \ast g)(x) \coloneqq g(f(x))$.
+    Let $(f \circ g)$ denote the sequential composition of functions $f \colon X \to Y$ and $g \colon Y \to Z$ such that $(f \circ g) \colon X \to Z$ where $f$ is applied first then $g$, i.e. $\Forall x \in X \colon (f \circ g)(x) \coloneqq g(f(x))$.
 \end{definition}
 
 \begin{proposition}[Associativity of Sequential Composition of Functions]
@@ -165,13 +166,13 @@ It has the following properties:
     
     Then their composition is associative:
     \begin{equation}
-        (f \ast g) \ast h \equiv f \ast (g \ast h)
+        (f \circ g) \circ h \equiv f \circ (g \circ h)
     \end{equation}
 \end{proposition}
 
 \begin{proof}\ \\
-    Let $s = (f \ast g)$ and $t = (s \ast h)$, then $t(x) = h(s(x)) = h(g(f(x)))$.\\
-    Let $u = (g \ast h)$ and $v = (f \ast u)$, then $v(x) = u(f(x)) = h(g(f(x)))$.\\ 
+    Let $s = (f \circ g)$ and $t = (s \circ h)$, then $t(x) = h(s(x)) = h(g(f(x)))$.\\
+    Let $u = (g \circ h)$ and $v = (f \circ u)$, then $v(x) = u(f(x)) = h(g(f(x)))$.\\ 
     Together they yield the desired equality $t(x) = v(x)$.
 \end{proof}
 

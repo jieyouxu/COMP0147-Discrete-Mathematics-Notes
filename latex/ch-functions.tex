@@ -56,9 +56,9 @@
 \begin{proposition}[Composition of Injection]
     Given \textit{injections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
     \begin{equation}
-        h(x) \coloneqq g(f(x))
+        h(x) \coloneqq (f \circ g)(x) \coloneqq g(f(x))
     \end{equation}
-    Then $h$ is also an \textit{injective} function. Namely $h = g \circ f$ where $h$ is composed from $g$ and $f$ with $f$ applied first.
+    Then $h$ is also an \textit{injective} function. Namely $h = f \circ g$ where $h$ is composed from $f$ and $g$ with $f$ applied first.
 \end{proposition}
 
 \begin{proof}
@@ -77,7 +77,7 @@
 \begin{proposition}[Composition of Surjection]
     Given \textit{surjections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their \textit{composition} $h \colon X \mapsto Z$ is given by
     \begin{equation}
-        h(x) \coloneqq g(f(x))
+        h(x) \coloneqq (f \circ g)(x) \coloneqq g(f(x))
     \end{equation}
     Then $h$ is also a \textit{surjective} function.
 \end{proposition}
@@ -87,21 +87,21 @@
     \begin{equation}
         \Forall z \in Z \colon \Exists x \in X \colon h(x) = z
     \end{equation}
-    Where $h(x) \Leftrightarrow (g \circ f)(x) \Leftrightarrow g(f(x))$.
+    Where $h(x) \Leftrightarrow (f \circ g)(x) \Leftrightarrow g(f(x))$.
     
     Given any element $z \in Z$ ($\Forall z \in Z$):
     \begin{enumerate}
         \item That $g \colon Y \mapsto Z$ is \textit{surjective} by definition, then $\Exists y \in Y \colon g(y) = z$.
         \item That $f \colon X \mapsto Y$ is \textit{surjective} by definition, then $\Exists x \in X \colon f(x) = y$.
     \end{enumerate}
-    Then $\Forall z \in Z \colon \Exists x \in X \colon h(x) = (g \circ f)(x) = g(f(x)) = g(y) = z$ holds true.
+    Then $\Forall z \in Z \colon \Exists x \in X \colon h(x) = (f \circ g)(x) = g(f(x)) = g(y) = z$ holds true.
 \end{proof}
 
 \section{Composition of Bijection}
 \begin{proposition}[Composition of Bijection]
     Given \textit{bijections} $f \colon X \mapsto Y$ and $g \colon Y \mapsto Z$, then their composition $h \colon X \mapsto Z$ is given by
     \begin{equation}
-        h(x) \coloneqq g(f(x))
+        h(x) \coloneqq (f \circ g)(x) \coloneqq g(f(x))
     \end{equation}
     Then $h$ is also a \textit{bijective} function; an \textit{inverse bijection} $\Inverse{h} \colon Z \mapsto X$ also exists.
 \end{proposition}
