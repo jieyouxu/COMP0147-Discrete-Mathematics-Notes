@@ -1,5 +1,5 @@
 # COMP0147 Discrete Mathematics for Computer Scientists Notes
-Notes for UCL COMP0147 Discrete Mathematics Course.
+Notes for UCL COMP0147 Discrete Mathematics Course. Latest compiled PDF version available at (https://github.com/jieyouxu/COMP0147-Discrete-Mathematics-Notes/releases).
 
 ## Core Topics
 - Foundations
